@@ -3,7 +3,8 @@
 GameStates.makeGame = function( game, shared ) {
     // Create your own variables.
     var bouncy = null;
-    
+    this.facing = 'left';
+	
     function quitGame() {
 
         //  Here you should destroy anything you no longer need.
@@ -17,41 +18,80 @@ GameStates.makeGame = function( game, shared ) {
     return {
     
         create: function () {
+			this.cursors = this.input.keyboard.createCursorKeys();
+			this.player = this.add.sprite(300, 300, 'girl');
+			this.physics.enable(this.player, Phaser.Physics.ARCADE);
+			this.player.body.collideWorldBounds = true;
+			this.player.animations.add('down', [0,1,2,3,], 10, true);
+			this.player.animations.add('left', [4, 5, 6, 7], 10, true);
+			this.player.animations.add('up', [8, 9, 10, 11], 10, true);
+			this.player.animations.add('right', [12, 13, 14, 15], 10, true);
+            
+		},
     
-            //  Honestly, just about anything could go here. It's YOUR game after all. Eat your heart out!
+		update: function () {
+			if (this.cursors.left.isDown){
+				this.player.body.velocity.x = -150;
+
+				if (this.facing != 'left')
+				{
+					this.player.animations.play('left');
+					this.facing = 'left';
+				}
+			}
+			else if (this.cursors.right.isDown)
+			{
+				this.player.body.velocity.x = 150;
+
+				if (this.facing != 'right')
+				{	
+					this.player.animations.play('right');
+					this.facing = 'right';
+					}     
+			}
+			else if (this.cursors.up.isDown){
+				this.player.body.velocity.y = -150;
             
-            // Create a sprite at the center of the screen using the 'logo' image.
-            bouncy = game.add.sprite( game.world.centerX, game.world.centerY, 'logo' );
-            // Anchor the sprite at its center, as opposed to its top-left corner.
-            // so it will be truly centered.
-            bouncy.anchor.setTo( 0.5, 0.5 );
+				if(this.facing != 'up'){
+					this.player.animations.play('up');
+					this.facing = 'up';
+				}
+			}
+			else if(this.cursors.down.isDown){
+				this.player.body.velocity.y = 150;
+				if(this.facing != 'down'){
+					this.player.animations.play('down');
+					this.facing = 'down';
+				}
+			}
+			else
+			{
+				if (this.facing != 'idle')
+				{
+					this.player.animations.stop();
+
+					if (this.facing == 'left')
+					{
+						this.player.frame = 4;
+					}
+					else if(this.facing == 'right')
+					{
+						this.player.frame = 12;
+					}
+					else if(this.facing == 'up'){
+						this.player.frame = 8;
+					}
+					else{
+						this.player.frame = 0;
+					}
+
+					this.facing = 'idle';
+					this.player.body.velocity.y = 0;
+					this.player.body.velocity.x = 0;
+                
+				}
+			}
             
-            // Turn on the arcade physics engine for this sprite.
-            game.physics.enable( bouncy, Phaser.Physics.ARCADE );
-            // Make it bounce off of the world bounds.
-            bouncy.body.collideWorldBounds = true;
-            
-            // Add some text using a CSS style.
-            // Center it in X, and position its top 15 pixels from the top of the world.
-            var style = { font: "25px Verdana", fill: "#9999ff", align: "center" };
-            var text = game.add.text( game.world.centerX, 15, "Build something amazing.", style );
-            text.anchor.setTo( 0.5, 0.0 );
-            
-            // When you click on the sprite, you go back to the MainMenu.
-            bouncy.inputEnabled = true;
-            bouncy.events.onInputDown.add( function() { quitGame(); }, this );
-        },
-    
-        update: function () {
-    
-            //  Honestly, just about anything could go here. It's YOUR game after all. Eat your heart out!
-            
-            // Accelerate the 'logo' sprite towards the cursor,
-            // accelerating at 500 pixels/second and moving no faster than 500 pixels/second
-            // in X or Y.
-            // This function returns the rotation angle that makes it visually match its
-            // new trajectory.
-            bouncy.rotation = game.physics.arcade.accelerateToPointer( bouncy, game.input.activePointer, 500, 500, 500 );
         }
     };
 };

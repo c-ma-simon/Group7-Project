@@ -20,7 +20,7 @@ GameStates.makePreloader = function( game ) {
             //	What that does is automatically crop the sprite from 0 to full-width
             //	as the files below are loaded in.
             game.load.setPreloadSprite(preloadBar);
-    
+			
             //	Here we load the rest of the assets our game needs.
             //	As this is just a Project Template I've not provided these assets, swap them for your own.
             game.load.image('titlePage', 'assets/title.jpg');
@@ -28,6 +28,7 @@ GameStates.makePreloader = function( game ) {
             game.load.audio('titleMusic', ['assets/Poppers and Prosecco.mp3']);
             //	+ lots of other required assets here
             game.load.image( 'logo', 'assets/phaser.png' );
+			this.load.spritesheet('girl', 'assets/girl1536x80.png', 96, 80);
         },
     
         create: function () {
