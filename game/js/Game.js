@@ -4,16 +4,6 @@ GameStates.makeGame = function( game, shared ) {
     // Create your own variables.
     var bouncy = null;
     this.facing = 'left';
-	
-    function quitGame() {
-
-        //  Here you should destroy anything you no longer need.
-        //  Stop music, delete sprites, purge caches, free resources, all that good stuff.
-
-        //  Then let's go back to the main menu.
-        game.state.start('MainMenu');
-
-    }
     
     return {
     
@@ -22,6 +12,8 @@ GameStates.makeGame = function( game, shared ) {
 			this.player = this.add.sprite(300, 300, 'girl');
 			this.physics.enable(this.player, Phaser.Physics.ARCADE);
 			this.player.body.collideWorldBounds = true;
+			this.player.inputEnabled = true;				
+			this.player.events.onInputDown.add( function() { this.quitGame(); }, this );
 			this.player.animations.add('down', [0,1,2,3,], 10, true);
 			this.player.animations.add('left', [4, 5, 6, 7], 10, true);
 			this.player.animations.add('up', [8, 9, 10, 11], 10, true);
@@ -91,7 +83,14 @@ GameStates.makeGame = function( game, shared ) {
                 
 				}
 			}
+
             
-        }
-    };
+        },
+		quitGame: function () {
+			this.player.kill();
+			this.state.start('makePuzzle');
+		},
+	};	
+
+  
 };

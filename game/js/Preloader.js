@@ -20,7 +20,35 @@ GameStates.makePreloader = function( game ) {
             //	What that does is automatically crop the sprite from 0 to full-width
             //	as the files below are loaded in.
             game.load.setPreloadSprite(preloadBar);
+			game.load.image('passwordpage', 'assets/passwordpage.png');
+			game.load.image('A', 'assets/ABC/a.png');
+			game.load.image('B', 'assets/ABC/b.png');
+			game.load.image('C', 'assets/ABC/c.png');
+			game.load.image('D', 'assets/ABC/d.png');
+			game.load.image('E', 'assets/ABC/e.png');
+			game.load.image('F', 'assets/ABC/f.png');
+			game.load.image('G', 'assets/ABC/g.png');
+			game.load.image('H', 'assets/ABC/h.png');
+			game.load.image('I', 'assets/ABC/i.png');
+			game.load.image('J', 'assets/ABC/j.png');
+			game.load.image('K', 'assets/ABC/k.png');
+			game.load.image('L', 'assets/ABC/l.png');
+			game.load.image('M', 'assets/ABC/m.png');
+			game.load.image('N', 'assets/ABC/n.png');
+			game.load.image('O', 'assets/ABC/o.png');
+			game.load.image('P', 'assets/ABC/p.png');
+			game.load.image('Q', 'assets/ABC/q.png');
+			game.load.image('R', 'assets/ABC/r.png');
+			game.load.image('S', 'assets/ABC/s.png');
+			game.load.image('T', 'assets/ABC/t.png');
+			game.load.image('U', 'assets/ABC/u.png');
+			game.load.image('V', 'assets/ABC/v.png');
+			game.load.image('W', 'assets/ABC/w.png');
+			game.load.image('X', 'assets/ABC/x.png');
+			game.load.image('Y', 'assets/ABC/y.png');
+			game.load.image('Z', 'assets/ABC/z.png');
 			
+			game.load.image('exit', 'assets/exit.png');
             //	Here we load the rest of the assets our game needs.
             //	As this is just a Project Template I've not provided these assets, swap them for your own.
             game.load.image('titlePage', 'assets/Menu.png');
