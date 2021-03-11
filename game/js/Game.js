@@ -9,7 +9,7 @@ GameStates.makeGame = function( game, shared ) {
     
         create: function () {
 			this.cursors = this.input.keyboard.createCursorKeys();
-			this.player = this.add.sprite(300, 300, 'girl');
+			this.player = this.add.sprite(300, 300, 'locke');
 			this.physics.enable(this.player, Phaser.Physics.ARCADE);
 			this.player.body.collideWorldBounds = true;
 			this.player.inputEnabled = true;				
@@ -87,7 +87,7 @@ GameStates.makeGame = function( game, shared ) {
             
         },
 		quitGame: function () {
-			this.player.kill();
+			//this.player.kill();
 			this.state.start('makePuzzle');
 		},
 	};	

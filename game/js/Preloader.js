@@ -57,6 +57,7 @@ GameStates.makePreloader = function( game ) {
             //	+ lots of other required assets here
             game.load.image( 'logo', 'assets/phaser.png' );
 			this.load.spritesheet('girl', 'assets/girl1536x80.png', 96, 80);
+			this.load.spritesheet('locke', 'assets/locke.png', 96, 80);
         },
     
         create: function () {
