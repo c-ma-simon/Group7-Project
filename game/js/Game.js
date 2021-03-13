@@ -4,7 +4,7 @@ GameStates.makeGame = function( game, shared ) {
     // Create your own variables.
     var bouncy = null;
     this.facing = 'left';
-    
+    var word = 'hello';
     return {
     
         create: function () {
