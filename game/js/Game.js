@@ -1,12 +1,12 @@
 "use strict";
 
 GameStates.makeGame = function( game, shared ) {
-    // Create your own variables.
     var bouncy = null;
     this.facing = 'left';
     var word = 'hello';
     return {
-    
+		//adds all assets and things used in the game
+		//currently, there is only the player and physics 
         create: function () {
 			this.cursors = this.input.keyboard.createCursorKeys();
 			this.player = this.add.sprite(300, 300, 'locke');
@@ -20,7 +20,8 @@ GameStates.makeGame = function( game, shared ) {
 			this.player.animations.add('right', [12, 13, 14, 15], 10, true);
             
 		},
-    
+		//loop that responds to user input
+		//currently only allows player to move the character
 		update: function () {
 			if (this.cursors.left.isDown){
 				this.player.body.velocity.x = -150;
@@ -86,6 +87,8 @@ GameStates.makeGame = function( game, shared ) {
 
             
         },
+		//this will eventually end the game, but right now it starts the 
+		//puzzle
 		quitGame: function () {
 			//this.player.kill();
 			this.state.start('makePuzzle');

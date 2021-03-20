@@ -14,7 +14,8 @@ GameStates.makePuzzle = function(game) {
 	var y = 200;
 	var unlocked = false;
 	return {
-
+		//randomly adds all letters (buttons), including the answer to the page
+		//in 4 x n (length of word) rectangle
 		create: function () {
 			this.background = game.add.sprite(0,0,'passwordpage');
 			this.cursors = this.input.keyboard.createCursorKeys();
@@ -51,7 +52,9 @@ GameStates.makePuzzle = function(game) {
 			}
 			
 		},
-
+		//loop that checks for input from user
+		//checks to see if the letters they've chosen are 
+		//correct. If they are, it will call quitLock();
 		update: function () {
 			var equal = true;
 			for(var i = 0; i < word.length; i++){
@@ -64,6 +67,9 @@ GameStates.makePuzzle = function(game) {
 				this.quitLock();
 			}
 		},
+		//adds letter that the player has chosen to top of 
+		//the page. It will also add it to an array to
+		//compare to the correct answer
 		addLetter: function (index, letter){
 			if(answer[index] != null){
 				answer[index].kill();
@@ -73,6 +79,8 @@ GameStates.makePuzzle = function(game) {
 			answer[index] = game.add.sprite((answer_x + (index * 100)),answer_y, letter);
 			letter_answer[index] = letter;
 		},
+		//exits the puzzle gamestate and starts the GameState. 
+		//kills all buttons 
 		quitLock: function () {
 			for(var i = 0; i < word.length; i ++){
 				for(var j = 0; j < 4; j++){
