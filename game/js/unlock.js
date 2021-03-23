@@ -1,10 +1,9 @@
 "use strict";
 
-GameStates.makePuzzle = function(game) {
-
-    var word = ['H','E','L','L','O']; 
+GameStates.makePuzzle = function(game, shared, shared_index) {
+    var word;
 	var abc = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T',
-	'U','V','W','X','Y','Z']
+	'U','V','W','X','Y','Z'];
 	var buttons = [];
 	var answer = [];
 	var letter_answer = [];
@@ -12,11 +11,13 @@ GameStates.makePuzzle = function(game) {
 	var random_letter;
 	var x = 100;
 	var y = 200;
-	var unlocked = false;
+	
+	var unlocked = [false, false];
 	return {
 		//randomly adds all letters (buttons), including the answer to the page
 		//in 4 x n (length of word) rectangle
 		create: function () {
+			word = shared[window.shared_index];
 			this.background = game.add.sprite(0,0,'passwordpage');
 			this.cursors = this.input.keyboard.createCursorKeys();
 			this.exit = game.add.sprite(700, 50, 'exit');
@@ -62,8 +63,9 @@ GameStates.makePuzzle = function(game) {
 					equal = false;
 				}
 			}
-			if(equal == true){
-				unlocked = true;
+			if(equal == true || unlocked[window.shared_index] == true){
+				unlocked[window.shared_index] = true;
+				equal == false;
 				this.quitLock();
 			}
 		},
@@ -87,6 +89,11 @@ GameStates.makePuzzle = function(game) {
 					buttons[i][j].kill();
 				}
 			}
+			buttons = [];
+			answer = [];
+			letter_answer = [];
+			random_num = null;
+			random_letter = null;
 			x = 100;
 			y = 200;
 			this.state.start('Game');

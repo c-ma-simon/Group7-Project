@@ -47,7 +47,8 @@ GameStates.makePreloader = function( game ) {
 			game.load.image('X', 'assets/ABC/x.png');
 			game.load.image('Y', 'assets/ABC/y.png');
 			game.load.image('Z', 'assets/ABC/z.png');
-			
+			game.load.image('temp_lock_1', 'assets/yellow circle.png');
+			game.load.image('temp_lock_2', 'assets/red circle.png');
 			game.load.image('exit', 'assets/exit.png');
             //	Here we load the rest of the assets our game needs.
             //	As this is just a Project Template I've not provided these assets, swap them for your own.
