@@ -10,6 +10,20 @@ GameStates.makeGame = function( game, shared, shared_index ) {
 		//currently, there is only the player and physics 
         create: function () {
 			this.cursors = this.input.keyboard.createCursorKeys();
+
+			//this.stage.backgroundColor = '#BFF068';
+			this.map = this.game.add.tilemap('testmap1');
+			this.map.addTilesetImage('CSprojecttiles00');
+			this.map.setCollisionByExclusion([0, -1]);
+			
+			this.bg = this.map.createLayer('background');
+			this.bg.resizeWorld();
+			this.bg.cameraOffset.set(0, 0);
+			this.layer = this.map.createLayer('layer');
+			this.layer.resizeWorld();
+			this.layer.cameraOffset.set(0, 0);
+			this.map.setCollisionBetween(1, 9999, true, this.layer);
+
 			this.player = this.add.sprite(300, 300, 'locke');
 			this.physics.enable(this.player, Phaser.Physics.ARCADE);
 			this.player.body.collideWorldBounds = true;
@@ -19,7 +33,9 @@ GameStates.makeGame = function( game, shared, shared_index ) {
 			this.player.animations.add('left', [4, 5, 6, 7], 10, true);
 			this.player.animations.add('up', [8, 9, 10, 11], 10, true);
 			this.player.animations.add('right', [12, 13, 14, 15], 10, true);
-            
+
+			this.bg = this.map.createLayer('foreground');
+
 			this.yellow = this.add.sprite(400, 400, 'temp_lock_1');
 			this.yellow.inputEnabled = true;
 			this.yellow.events.onInputDown.add( function() { this.lockOne(); }, this );
@@ -31,6 +47,7 @@ GameStates.makeGame = function( game, shared, shared_index ) {
 		//loop that responds to user input
 		//currently only allows player to move the character
 		update: function () {
+			this.physics.arcade.collide(this.player, this.layer);
 			if (this.cursors.left.isDown){
 				this.player.body.velocity.x = -150;
 

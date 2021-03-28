@@ -20,6 +20,9 @@ GameStates.makePreloader = function( game ) {
             //	What that does is automatically crop the sprite from 0 to full-width
             //	as the files below are loaded in.
             game.load.setPreloadSprite(preloadBar);
+            game.load.tilemap('testmap0', 'assets/testmap00.json', null, Phaser.Tilemap.TILED_JSON);
+            game.load.tilemap('testmap1', 'assets/testmap01.json', null, Phaser.Tilemap.TILED_JSON);
+            game.load.image('CSprojecttiles00', 'assets/CSprojecttiles00.png');
 			game.load.image('passwordpage', 'assets/passwordpage.png');
 			game.load.image('A', 'assets/ABC/a.png');
 			game.load.image('B', 'assets/ABC/b.png');
