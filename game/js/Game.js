@@ -43,6 +43,8 @@ GameStates.makeGame = function( game, shared, shared_index ) {
 			this.red = this.add.sprite(500, 500, 'temp_lock_2');
 			this.red.inputEnabled = true;
 			this.red.events.onInputDown.add( function() { this.lockTwo(); }, this );
+		
+			this.key_1A = this.add.sprite(200, 200, 'key_1');
 		},
 		//loop that responds to user input
 		//currently only allows player to move the character
