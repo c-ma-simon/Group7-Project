@@ -1,6 +1,6 @@
 "use strict";
 
-GameStates.makeGame = function( game, shared, shared_index ) {
+GameStates.makeGame = function (game, shared, shared_index, keys, hints, items ) {
     var bouncy = null;
     this.facing = 'left';
     shared[0] = 'HELLO';
@@ -12,6 +12,8 @@ GameStates.makeGame = function( game, shared, shared_index ) {
 			this.cursors = this.input.keyboard.createCursorKeys();
 
 			//this.stage.backgroundColor = '#BFF068';
+
+			//tilemap
 			this.map = this.game.add.tilemap('testmap1');
 			this.map.addTilesetImage('CSprojecttiles00');
 			this.map.setCollisionByExclusion([0, -1]);
@@ -24,18 +26,23 @@ GameStates.makeGame = function( game, shared, shared_index ) {
 			this.layer.cameraOffset.set(0, 0);
 			this.map.setCollisionBetween(1, 9999, true, this.layer);
 
+			//character
+
 			this.player = this.add.sprite(300, 300, 'locke');
 			this.physics.enable(this.player, Phaser.Physics.ARCADE);
 			this.player.body.collideWorldBounds = true;
 			this.player.inputEnabled = true;				
-			this.player.events.onInputDown.add( function() { this.quitGame(); }, this );
+			this.player.events.onInputDown.add( function() { this.inventory(); }, this );
 			this.player.animations.add('down', [0, 1, 2, 3], 10, true);
 			this.player.animations.add('left', [4, 5, 6, 7], 10, true);
 			this.player.animations.add('up', [8, 9, 10, 11], 10, true);
 			this.player.animations.add('right', [12, 13, 14, 15], 10, true);
 
+			//foreground of tilemap
 			this.bg = this.map.createLayer('foreground');
 
+
+			//other items
 			this.yellow = this.add.sprite(400, 400, 'temp_lock_1');
 			this.yellow.inputEnabled = true;
 			this.yellow.events.onInputDown.add( function() { this.lockOne(); }, this );
@@ -122,6 +129,9 @@ GameStates.makeGame = function( game, shared, shared_index ) {
 		lockTwo: function(){
 			window.shared_index = 1;
 			this.state.start('makePuzzle');
+		},
+		inventory: function () {
+			this.state.start('menu');
 		},
 		//this will eventually end the game, but right now it starts the 
 		//puzzle

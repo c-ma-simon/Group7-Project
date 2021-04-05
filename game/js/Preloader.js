@@ -20,10 +20,18 @@ GameStates.makePreloader = function( game ) {
             //	What that does is automatically crop the sprite from 0 to full-width
             //	as the files below are loaded in.
             game.load.setPreloadSprite(preloadBar);
+
+
+            //tilemaps
             game.load.tilemap('testmap0', 'assets/testmap00.json', null, Phaser.Tilemap.TILED_JSON);
             game.load.tilemap('testmap1', 'assets/testmap01.json', null, Phaser.Tilemap.TILED_JSON);
+            //tilesets
             game.load.image('CSprojecttiles00', 'assets/CSprojecttiles00.png');
-			game.load.image('passwordpage', 'assets/passwordpage.png');
+            //backgrounds
+            game.load.image('passwordpage', 'assets/passwordpage.png');
+            game.load.image('titlePage', 'assets/Menu.png');
+            game.load.image('inventory', 'assets/inventory.png');
+            //letters 
 			game.load.image('A', 'assets/ABC/a.png');
 			game.load.image('B', 'assets/ABC/b.png');
 			game.load.image('C', 'assets/ABC/c.png');
@@ -49,19 +57,30 @@ GameStates.makePreloader = function( game ) {
 			game.load.image('W', 'assets/ABC/w.png');
 			game.load.image('X', 'assets/ABC/x.png');
 			game.load.image('Y', 'assets/ABC/y.png');
-			game.load.image('Z', 'assets/ABC/z.png');
+            game.load.image('Z', 'assets/ABC/z.png');
+            //temp locks
 			game.load.image('temp_lock_1', 'assets/yellow circle.png');
-			game.load.image('temp_lock_2', 'assets/red circle.png');
-			game.load.image('key_1', 'assets/KeyCircle.png');
-			game.load.image('exit', 'assets/exit.png');
-            //	Here we load the rest of the assets our game needs.
-            //	As this is just a Project Template I've not provided these assets, swap them for your own.
-            game.load.image('titlePage', 'assets/Menu.png');
+            game.load.image('temp_lock_2', 'assets/red circle.png');
+            //keys
+            game.load.image('key_1', 'assets/KeyCircle.png');
+            game.load.image('key_2', 'assets/KeySquare.png');
+            game.load.image('key_3', 'assets/KeyTriangle.png');
+            //items
+            game.load.image('match', 'assets/ItemMatch.png');
+            game.load.image('box60', 'assets/ItemBox60x.png');
+            game.load.image('box64', 'assets/ItemBox64x.png');
+            game.load.image('button0', 'assets/ItemButton.png');
+            game.load.image('button1', 'assets/ItemButtonNoPlate.png');
+            //exit buttons
+            game.load.image('exit', 'assets/exit.png');
+            game.load.image('yellowexit', 'assets/yellowexit.png');
+
+            //title stuff
             game.load.atlas('playButton', 'assets/play_button.png', 'assets/play_button.json');
             game.load.audio('titleMusic', ['assets/Poppers and Prosecco.mp3']);
-            //	+ lots of other required assets here
             game.load.image( 'logo', 'assets/phaser.png' );
-			this.load.spritesheet('girl', 'assets/girl1536x80.png', 96, 80);
+
+            //character
 			this.load.spritesheet('locke', 'assets/locke.png', 96, 80);
         },
     
