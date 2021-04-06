@@ -53,6 +53,12 @@ GameStates.makeGame = function (game, shared, shared_index, keys, hints, items )
 		
 			this.key_1A = this.add.sprite(100, 100, 'key_1');
 			this.key_1A.inputEnabled = true;
+		
+			this.match_1A = this.add.sprite(250, 100, 'match');
+			this.match_1A.inputEnabled = true;
+		
+			this.box_1A = this.add.sprite(400, 100, 'box60');
+			this.box_1A.inputEnabled = true;
 		},
 		//loop that responds to user input
 		//currently only allows player to move the character
