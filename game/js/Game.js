@@ -65,7 +65,7 @@ GameStates.makeGame = function (game, shared, shared_index, keys, hints, items )
 		update: function () {
 			this.physics.arcade.collide(this.player, this.layer);
 			if (this.cursors.left.isDown){
-				this.player.body.velocity.x = -150;
+				this.player.body.velocity.x = -300;
 
 				if (this.facing != 'left')
 				{
@@ -75,7 +75,7 @@ GameStates.makeGame = function (game, shared, shared_index, keys, hints, items )
 			}
 			else if (this.cursors.right.isDown)
 			{
-				this.player.body.velocity.x = 150;
+				this.player.body.velocity.x = 300;
 
 				if (this.facing != 'right')
 				{	
@@ -84,7 +84,7 @@ GameStates.makeGame = function (game, shared, shared_index, keys, hints, items )
 					}     
 			}
 			else if (this.cursors.up.isDown){
-				this.player.body.velocity.y = -150;
+				this.player.body.velocity.y = -300;
             
 				if(this.facing != 'up'){
 					this.player.animations.play('up');
@@ -92,7 +92,7 @@ GameStates.makeGame = function (game, shared, shared_index, keys, hints, items )
 				}
 			}
 			else if(this.cursors.down.isDown){
-				this.player.body.velocity.y = 150;
+				this.player.body.velocity.y = 300;
 				if(this.facing != 'down'){
 					this.player.animations.play('down');
 					this.facing = 'down';
