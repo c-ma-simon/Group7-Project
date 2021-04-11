@@ -26,21 +26,6 @@ GameStates.makeGame = function (game, shared, shared_index, keys, hints, items )
 			this.layer.cameraOffset.set(0, 0);
 			this.map.setCollisionBetween(1, 9999, true, this.layer);
 
-			//character
-
-			this.player = this.add.sprite(300, 300, 'locke');
-			this.physics.enable(this.player, Phaser.Physics.ARCADE);
-			this.player.body.collideWorldBounds = true;
-			this.player.inputEnabled = true;
-			this.player.events.onInputDown.add(function () { this.inventory(); }, this);
-			this.player.animations.add('down', [0, 1, 2, 3], 10, true);
-			this.player.animations.add('left', [4, 5, 6, 7], 10, true);
-			this.player.animations.add('up', [8, 9, 10, 11], 10, true);
-			this.player.animations.add('right', [12, 13, 14, 15], 10, true);
-
-			//foreground of tilemap
-			this.bg = this.map.createLayer('foreground');
-
 
 			//other items
 			this.yellow = this.add.sprite(400, 400, 'temp_lock_1');
@@ -61,6 +46,21 @@ GameStates.makeGame = function (game, shared, shared_index, keys, hints, items )
 		
 			this.box_1A = this.add.sprite(400, 100, 'box60');
 			this.box_1A.inputEnabled = true;
+
+			//character
+
+			this.player = this.add.sprite(300, 300, 'locke');
+			this.physics.enable(this.player, Phaser.Physics.ARCADE);
+			this.player.body.collideWorldBounds = true;
+			this.player.inputEnabled = true;
+			this.player.events.onInputDown.add(function () { this.inventory(); }, this);
+			this.player.animations.add('down', [0, 1, 2, 3], 10, true);
+			this.player.animations.add('left', [4, 5, 6, 7], 10, true);
+			this.player.animations.add('up', [8, 9, 10, 11], 10, true);
+			this.player.animations.add('right', [12, 13, 14, 15], 10, true);
+
+			//foreground of tilemap
+			this.bg = this.map.createLayer('foreground');
 		},
 		//loop that responds to user input
 		//currently only allows player to move the character
