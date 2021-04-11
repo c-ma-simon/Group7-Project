@@ -8,7 +8,7 @@ GameStates.makeGame = function (game, shared, shared_index, keys, hints, items )
     return {
 		//adds all assets and things used in the game
 		//currently, there is only the player and physics 
-        create: function () {
+		create: function () {
 			this.cursors = this.input.keyboard.createCursorKeys();
 
 			//this.stage.backgroundColor = '#BFF068';
@@ -17,7 +17,7 @@ GameStates.makeGame = function (game, shared, shared_index, keys, hints, items )
 			this.map = this.game.add.tilemap('testmap1');
 			this.map.addTilesetImage('CSprojecttiles00');
 			this.map.setCollisionByExclusion([0, -1]);
-			
+
 			this.bg = this.map.createLayer('background');
 			this.bg.resizeWorld();
 			this.bg.cameraOffset.set(0, 0);
@@ -31,8 +31,8 @@ GameStates.makeGame = function (game, shared, shared_index, keys, hints, items )
 			this.player = this.add.sprite(300, 300, 'locke');
 			this.physics.enable(this.player, Phaser.Physics.ARCADE);
 			this.player.body.collideWorldBounds = true;
-			this.player.inputEnabled = true;				
-			this.player.events.onInputDown.add( function() { this.inventory(); }, this );
+			this.player.inputEnabled = true;
+			this.player.events.onInputDown.add(function () { this.inventory(); }, this);
 			this.player.animations.add('down', [0, 1, 2, 3], 10, true);
 			this.player.animations.add('left', [4, 5, 6, 7], 10, true);
 			this.player.animations.add('up', [8, 9, 10, 11], 10, true);
@@ -45,15 +45,17 @@ GameStates.makeGame = function (game, shared, shared_index, keys, hints, items )
 			//other items
 			this.yellow = this.add.sprite(400, 400, 'temp_lock_1');
 			this.yellow.inputEnabled = true;
-			this.yellow.events.onInputDown.add( function() { this.lockOne(); }, this );
-			
+			this.yellow.events.onInputDown.add(function () { this.lockOne(); }, this);
+
 			this.red = this.add.sprite(500, 500, 'temp_lock_2');
 			this.red.inputEnabled = true;
-			this.red.events.onInputDown.add( function() { this.lockTwo(); }, this );
-		
-			this.key_1A = this.add.sprite(100, 100, 'key_1');
-			this.key_1A.inputEnabled = true;
-		
+			this.red.events.onInputDown.add(function () { this.lockTwo(); }, this);
+
+			if (keys.includes('key_1') == false) {
+				this.key_1A = this.add.sprite(100, 100, 'key_1');
+				this.key_1A.inputEnabled = true;
+				this.key_1A.events.onInputDown.add(function () { this.collectItem(this.key_1A, keys, 'key_1'); }, this);
+			}		
 			this.match_1A = this.add.sprite(250, 100, 'match');
 			this.match_1A.inputEnabled = true;
 		
@@ -127,7 +129,14 @@ GameStates.makeGame = function (game, shared, shared_index, keys, hints, items )
 			}
 
             
-        },
+		},
+
+		//kills item and adds it to the correct list
+		//needs the stprite, the list it goes in, and the correct name of the spite
+		collectItem: function(sprite, array, string){
+			sprite.kill();
+			array[array.length] = string;
+		},
 		lockOne: function(){
 			window.shared_index = 0;
 			this.state.start('makePuzzle');

@@ -12,7 +12,7 @@ window.onload = function() {
 	// An object for shared variables, so that them main menu can show
 	// the high score if you want.
 	var shared = [];
-	var keys = ['key_1', 'key_2', 'key_3'];
+	var keys = [];
 	var hints = [];
 	var items = [];
 	var shared_index = 0;
