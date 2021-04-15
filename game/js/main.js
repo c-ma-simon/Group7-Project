@@ -17,7 +17,8 @@ window.onload = function() {
 	var items = [];
 	var shared_index = 0;
 	game.state.add( 'Boot', GameStates.makeBoot( game ) );
-	game.state.add( 'Preloader', GameStates.makePreloader( game ) );
+	game.state.add('Preloader', GameStates.makePreloader(game));
+	game.state.add('controls', GameStates.makeControls(game));
 	game.state.add( 'MainMenu', GameStates.makeMainMenu( game, shared, shared_index, keys, hints, items ) );
 	game.state.add('Game', GameStates.makeGame(game, shared, shared_index, keys, hints, items ) );
 	game.state.add('makePuzzle', GameStates.makePuzzle(game, shared, shared_index, keys, hints, items ) );

@@ -31,6 +31,7 @@ GameStates.makePreloader = function( game ) {
             game.load.image('passwordpage', 'assets/passwordpage.png');
             game.load.image('titlePage', 'assets/Menu.png');
             game.load.image('inventory', 'assets/inventory.png');
+            game.load.image('controls', 'assets/controls.png');
             //letters 
 			game.load.image('A', 'assets/ABC/a.png');
 			game.load.image('B', 'assets/ABC/b.png');
@@ -86,9 +87,10 @@ GameStates.makePreloader = function( game ) {
             game.load.image('exit', 'assets/exit.png');
             game.load.image('yellowexit', 'assets/yellowexit.png');
             game.load.image('reset', 'assets/reset.png');
-
-            //title stuff
             game.load.atlas('playButton', 'assets/play_button.png', 'assets/play_button.json');
+            game.load.atlas('controlsButton', 'assets/controls_button.png', 'assets/play_button.json');
+            //title stuff
+            
             game.load.audio('titleMusic', ['assets/Poppers and Prosecco.mp3']);
             game.load.image( 'logo', 'assets/phaser.png' );
 
