@@ -58,6 +58,17 @@ GameStates.makePreloader = function( game ) {
 			game.load.image('X', 'assets/ABC/x.png');
 			game.load.image('Y', 'assets/ABC/y.png');
             game.load.image('Z', 'assets/ABC/z.png');
+            //numbers
+            game.load.image('0', 'assets/123/zero.png');
+            game.load.image('1', 'assets/123/one.png');
+            game.load.image('2', 'assets/123/two.png');
+            game.load.image('3', 'assets/123/three.png');
+            game.load.image('4', 'assets/123/four.png');
+            game.load.image('5', 'assets/123/five.png');
+            game.load.image('6', 'assets/123/six.png');
+            game.load.image('7', 'assets/123/seven.png');
+            game.load.image('8', 'assets/123/eight.png');
+            game.load.image('9', 'assets/123/nine.png');
             //temp locks
 			game.load.image('temp_lock_1', 'assets/yellow circle.png');
             game.load.image('temp_lock_2', 'assets/red circle.png');
@@ -71,9 +82,10 @@ GameStates.makePreloader = function( game ) {
             game.load.image('box64', 'assets/ItemBox64x.png');
             game.load.image('button0', 'assets/ItemButton.png');
             game.load.image('button1', 'assets/ItemButtonNoPlate.png');
-            //exit buttons
+            //buttons
             game.load.image('exit', 'assets/exit.png');
             game.load.image('yellowexit', 'assets/yellowexit.png');
+            game.load.image('reset', 'assets/reset.png');
 
             //title stuff
             game.load.atlas('playButton', 'assets/play_button.png', 'assets/play_button.json');

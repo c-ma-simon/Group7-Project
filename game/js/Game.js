@@ -5,6 +5,7 @@ GameStates.makeGame = function (game, shared, shared_index, keys, hints, items )
     this.facing = 'left';
     shared[0] = 'HELLO';
 	shared[1] = 'WORLD';
+	shared[2] = '12345';
     return {
 		//adds all assets and things used in the game
 		//currently, there is only the player and physics 
@@ -142,8 +143,8 @@ GameStates.makeGame = function (game, shared, shared_index, keys, hints, items )
 			this.state.start('makePuzzle');
 		},
 		lockTwo: function(){
-			window.shared_index = 1;
-			this.state.start('makePuzzle');
+			window.shared_index = 2;
+			this.state.start('numberPuzzle');
 		},
 		inventory: function () {
 			this.state.start('menu');

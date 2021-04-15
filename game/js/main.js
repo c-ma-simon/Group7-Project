@@ -22,6 +22,7 @@ window.onload = function() {
 	game.state.add('Game', GameStates.makeGame(game, shared, shared_index, keys, hints, items ) );
 	game.state.add('makePuzzle', GameStates.makePuzzle(game, shared, shared_index, keys, hints, items ) );
 	game.state.add('menu', GameStates.makeMenu(game, shared, keys, hints, items)); 
+	game.state.add('numberPuzzle', GameStates.makeNumber(game, shared, shared_index, keys, hints, items)); 
 	//	Now start the Boot state.
 	game.state.start('Boot');
 
