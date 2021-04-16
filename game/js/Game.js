@@ -162,7 +162,7 @@ GameStates.makeGame = function (game, shared, shared_index, keys, hints, items )
 		//puzzle
 		quitGame: function () {
 			//this.player.kill();
-			this.state.start('makePuzzle');
+			this.state.start('endGame');
 		},
 	};	
 
