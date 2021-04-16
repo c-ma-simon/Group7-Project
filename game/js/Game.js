@@ -62,10 +62,9 @@ GameStates.makeGame = function (game, shared, shared_index, keys, hints, items )
 			this.box_1A.inputEnabled = true;
 			this.physics.enable(this.box_1A, Phaser.Physics.ARCADE);
 			this.box_1A.body.collideWorldBounds = true;
-                        game.physics.arcade.enable([this.box_1A],[this.player]);
-                        this.box_1A.body.onCollide = new Phaser.Signal();
-			this.physics.arcade.collide(this.box_1A, this.layer);
-			this.physics.arcade.collide(this.box_1A, this.player);
+            this.game.physics.arcade.enable([this.box_1A],[this.player]);
+            this.box_1A.body.onCollide = new Phaser.Signal();
+
 
 			//foreground of tilemap
 			this.bg = this.map.createLayer('foreground');
@@ -74,6 +73,9 @@ GameStates.makeGame = function (game, shared, shared_index, keys, hints, items )
 		//currently only allows player to move the character
 		update: function () {
 			this.physics.arcade.collide(this.player, this.layer);
+			this.physics.arcade.collide(this.box_1A, this.layer);
+			this.physics.arcade.collide(this.box_1A, this.player);
+
 			if (this.cursors.left.isDown){
 				this.player.body.velocity.x = -300;
 
