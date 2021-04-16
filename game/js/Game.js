@@ -38,16 +38,13 @@ GameStates.makeGame = function (game, shared, shared_index, keys, hints, items )
 			this.red.events.onInputDown.add(function () { this.lockTwo(); }, this);
 
 			if (keys.includes('key_1') == false) {
-				this.key_1A = this.add.sprite(100, 100, 'key_1');
+				this.key_1A = this.add.sprite(400, 100, 'key_1');
 				this.key_1A.inputEnabled = true;
 				this.key_1A.events.onInputDown.add(function () { this.collectItem(this.key_1A, keys, 'key_1'); }, this);
 			}		
 			this.match_1A = this.add.sprite(250, 100, 'match');
 			this.match_1A.inputEnabled = true;
 		
-			this.box_1A = this.add.sprite(400, 100, 'box60');
-			this.box_1A.inputEnabled = true;
-
 			//character
 
 			this.player = this.add.sprite(300, 300, 'locke');
@@ -59,6 +56,16 @@ GameStates.makeGame = function (game, shared, shared_index, keys, hints, items )
 			this.player.animations.add('left', [4, 5, 6, 7], 10, true);
 			this.player.animations.add('up', [8, 9, 10, 11], 10, true);
 			this.player.animations.add('right', [12, 13, 14, 15], 10, true);
+			
+			//collision items
+			this.box_1A = this.add.sprite(100, 100, 'box60');
+			this.box_1A.inputEnabled = true;
+			this.physics.enable(this.box_1A, Phaser.Physics.ARCADE);
+			this.box_1A.body.collideWorldBounds = true;
+                        game.physics.arcade.enable([this.box_1A],[this.player]);
+                        this.box_1A.body.onCollide = new Phaser.Signal();
+			this.physics.arcade.collide(this.box_1A, this.layer);
+			this.physics.arcade.collide(this.box_1A, this.player);
 
 			//foreground of tilemap
 			this.bg = this.map.createLayer('foreground');
