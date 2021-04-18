@@ -44,6 +44,8 @@ GameStates.makeGame = function (game, shared, shared_index, keys, hints, items )
 			}		
 			this.match_1A = this.add.sprite(250, 100, 'match');
 			this.match_1A.inputEnabled = true;
+			
+			hints = this.add.sprite(150, 100, 'hint');
 		
 			//character
 
