@@ -23,11 +23,11 @@ GameStates.makeGame = function (game, shared, shared_index, keys, hints, items )
 			//this.map.addTilesetImage('CSprojecttiles00');
 			//this.map.setCollisionByExclusion([0, -1]);
 
-			this.bg = this.map.createLayer('background');
-			this.bg.resizeWorld();
+			this.bg = this.map.createLayer('tile floor');
+			//this.bg.resizeWorld();
 			this.bg.cameraOffset.set(0, 0);
-			this.layer = this.map.createLayer('layer');
-			this.layer.resizeWorld();
+			this.layer = this.map.createLayer('tile wall');
+			//this.layer.resizeWorld();
 			this.layer.cameraOffset.set(0, 0);
 			this.map.setCollisionBetween(1, 9999, true, this.layer);
 
@@ -73,7 +73,7 @@ GameStates.makeGame = function (game, shared, shared_index, keys, hints, items )
 
 
 			//foreground of tilemap
-			this.bg = this.map.createLayer('foreground');
+			//this.bg = this.map.createLayer('foreground');
 		},
 		//loop that responds to user input
 		//currently only allows player to move the character
