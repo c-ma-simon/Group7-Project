@@ -55,7 +55,7 @@ GameStates.makeGame = function (game, shared, shared_index, keys, hints, items )
 		
 			//character
 
-			this.player = this.add.sprite(400, 500, 'locke');
+			this.player = this.add.sprite(300, 1200, 'locke');
 			this.physics.enable(this.player, Phaser.Physics.ARCADE);
 			this.player.body.collideWorldBounds = true;
 			this.player.inputEnabled = true;
