@@ -13,15 +13,21 @@ GameStates.endGame = function(game, shared, keys, hints, items, shared_index){
   hints = []
   items = []
   return{
-    create: function(){}
+    create: function(){
       //add background
-      this.background = game.sprite(0,0, 'background');
+     this.background = game.sprite(0,0, 'background');
       //add Game exited text
-      text = game.add.text(x, y, '', style);
-      text.parseList(gameexit);
-    }
+     text = game.add.text(x, y, '', style);
+     text.parseList(gameexit);
+     this.exit = game.add.sprite(700, 50, 'exit');
+     this.exit.inputEnabled = true;
+     this.exit.events.onInputDown.add(function () { this.backToMenu(); }, this);
+    },
     //return to MainMenu
-    game.state.start('MainMenu');
+    backToMenu: function () {
+          //this.player.kill();
+        this.state.start('MainMenu');
+    },
   }
 
 

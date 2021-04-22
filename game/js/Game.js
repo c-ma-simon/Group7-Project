@@ -155,7 +155,7 @@ GameStates.makeGame = function (game, shared, shared_index, keys, hints, items )
 		},
 		lockTwo: function(){
 			window.shared_index = 2;
-			this.state.start('numberPuzzle');
+			this.state.start('endGame');
 		},
 		inventory: function () {
 			this.state.start('menu');
