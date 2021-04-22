@@ -29,7 +29,7 @@ GameStates.makeGame = function (game, shared, shared_index, keys, hints, items )
 
 			this.layer = this.map.createLayer('tile wall');
 			//this.layer.resizeWorld();
-			this.layer.cameraOffset.set(0, 0);
+			//this.layer.cameraOffset.set(0, 0);
 			this.map.setCollisionBetween(1, 9999, true, this.layer);
 
 
