@@ -15,7 +15,7 @@ GameStates.makeGame = function (game, shared, shared_index, keys, hints, items )
 			//this.stage.backgroundColor = '#BFF068';
 
 			//tilemap
-			this.map = this.game.add.tilemap('gamemap02');
+			this.map = this.game.add.tilemap('gamemap');
 			this.map.addTilesetImage('CSprojecttiles00');
 			this.map.setCollisionByExclusion([0, -1]);
 
@@ -23,9 +23,9 @@ GameStates.makeGame = function (game, shared, shared_index, keys, hints, items )
 			//this.map.addTilesetImage('CSprojecttiles00');
 			//this.map.setCollisionByExclusion([0, -1]);
 
-			this.bg = this.map.createLayer('tile floor');
-			this.bg.resizeWorld();
-			this.bg.cameraOffset.set(0, 0);
+			//this.bg = this.map.createLayer('tile floor');
+			//this.bg.resizeWorld();
+			//this.bg.cameraOffset.set(0, 0);
 
 			this.layer = this.map.createLayer('tile wall');
 			this.layer.resizeWorld();
