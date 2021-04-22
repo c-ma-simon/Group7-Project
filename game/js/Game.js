@@ -15,7 +15,7 @@ GameStates.makeGame = function (game, shared, shared_index, keys, hints, items )
 			//this.stage.backgroundColor = '#BFF068';
 
 			//tilemap
-			this.map = this.game.add.tilemap('gamemap01');
+			this.map = this.game.add.tilemap('gamemap02');
 			this.map.addTilesetImage('CSprojecttiles00');
 			this.map.setCollisionByExclusion([0, -1]);
 
