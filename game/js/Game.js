@@ -17,7 +17,7 @@ GameStates.makeGame = function (game, shared, shared_index, keys, hints, items )
 			
 			//tilemap
 			this.map = this.game.add.tilemap('gamemap');
-			this.map.addTilesetImage('CSprojecttiles00');
+			this.map.addTilesetImage('GamemapTiles','CSprojecttiles00');
 			this.map.setCollisionByExclusion([0, -1]);
 			
 			//this.map = this.game.add.tilemap('testmap1');
