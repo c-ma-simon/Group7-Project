@@ -25,6 +25,7 @@ GameStates.makePreloader = function( game ) {
             //tilemaps
             game.load.tilemap('testmap0', 'assets/testmap00.json', null, Phaser.Tilemap.TILED_JSON);
             game.load.tilemap('testmap1', 'assets/testmap01.json', null, Phaser.Tilemap.TILED_JSON);
+	    game.load.tilemap('gamemap01', 'assets/gamemap01.json', null, Phaser.Tilemap.TILED_JSON);
             //tilesets
             game.load.image('CSprojecttiles00', 'assets/CSprojecttiles00.png');
             //backgrounds
