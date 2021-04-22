@@ -24,10 +24,11 @@ GameStates.makeGame = function (game, shared, shared_index, keys, hints, items )
 			//this.map.setCollisionByExclusion([0, -1]);
 
 			this.bg = this.map.createLayer('tile floor');
-			//this.bg.resizeWorld();
+			this.bg.resizeWorld();
 			this.bg.cameraOffset.set(0, 0);
+
 			this.layer = this.map.createLayer('tile wall');
-			//this.layer.resizeWorld();
+			this.layer.resizeWorld();
 			this.layer.cameraOffset.set(0, 0);
 			this.map.setCollisionBetween(1, 9999, true, this.layer);
 
@@ -62,7 +63,8 @@ GameStates.makeGame = function (game, shared, shared_index, keys, hints, items )
 			this.player.animations.add('left', [4, 5, 6, 7], 10, true);
 			this.player.animations.add('up', [8, 9, 10, 11], 10, true);
 			this.player.animations.add('right', [12, 13, 14, 15], 10, true);
-			
+			game.camera.follow(this.player);
+
 			//collision items
 			this.box_1A = this.add.sprite(100, 100, 'box60');
 			this.box_1A.inputEnabled = true;
