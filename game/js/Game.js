@@ -73,7 +73,7 @@ GameStates.makeGame = function (game, shared, shared_index, keys, hints, items )
             this.game.physics.arcade.enable([this.box_1A],[this.player]);
             this.box_1A.body.onCollide = new Phaser.Signal();
 
-
+			this.mapfloor = this.add.sprite(0, 0, 'mapfloor');
 			//foreground of tilemap
 			//this.bg = this.map.createLayer('foreground');
 		},
