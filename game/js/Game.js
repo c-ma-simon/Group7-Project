@@ -13,12 +13,13 @@ GameStates.makeGame = function (game, shared, shared_index, keys, hints, items )
 			this.cursors = this.input.keyboard.createCursorKeys();
 
 			//this.stage.backgroundColor = '#BFF068';
-
+			this.mapfloor = this.add.sprite(0, 0, 'mapfloor');//floor is a big image instead of tiles
+			
 			//tilemap
 			this.map = this.game.add.tilemap('gamemap');
 			this.map.addTilesetImage('CSprojecttiles00');
 			this.map.setCollisionByExclusion([0, -1]);
-			this.mapfloor = this.add.sprite(0, 0, 'mapfloor');
+			
 			//this.map = this.game.add.tilemap('testmap1');
 			//this.map.addTilesetImage('CSprojecttiles00');
 			//this.map.setCollisionByExclusion([0, -1]);
