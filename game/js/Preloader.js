@@ -34,6 +34,7 @@ GameStates.makePreloader = function( game ) {
             game.load.image('inventory', 'assets/inventory.png');
             game.load.image('controls', 'assets/controls.png');
 	    game.load.image('mapfloor', 'assets/mapfloor.png');
+	    game.load.image('mapwall', 'assets/tilewallmanual.png');
             //letters 
 			game.load.image('A', 'assets/ABC/a.png');
 			game.load.image('B', 'assets/ABC/b.png');
