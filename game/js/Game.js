@@ -20,7 +20,7 @@ GameStates.makeGame = function (game, shared, shared_index, keys, hints, items )
 			this.map.addTilesetImage('CSprojecttiles00');
 			this.map.setCollisionByExclusion([0, -1]);
 			
-			this.mapwall = this.add.sprite(48, 32, 'mapwall');//cover up flickering wall tiles attempt
+			this.mapwall = this.add.sprite(48, 16, 'mapwall');//cover up flickering wall tiles attempt
 			
 			//this.map = this.game.add.tilemap('testmap1');
 			//this.map.addTilesetImage('CSprojecttiles00');
