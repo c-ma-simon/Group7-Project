@@ -1,6 +1,6 @@
 "use strict";
 
-GameStates.makeGame = function (game, shared, shared_index, keys, hints, items ) {
+GameStates.makeGame = function (game, shared, shared_index, keys, hints, items, xy ) {
     var bouncy = null;
     this.facing = 'left';
     shared[0] = 'HELLO';
@@ -57,7 +57,7 @@ GameStates.makeGame = function (game, shared, shared_index, keys, hints, items )
 		
 			//character
 
-			this.player = this.add.sprite(300, 1600, 'locke');
+			this.player = this.add.sprite(xy[0], xy[1], 'locke');
 			this.physics.enable(this.player, Phaser.Physics.ARCADE);
 			this.player.body.collideWorldBounds = true;
 			this.player.inputEnabled = true;
@@ -148,7 +148,8 @@ GameStates.makeGame = function (game, shared, shared_index, keys, hints, items )
                 
 				}
 			}
-
+			xy[0] = this.player.world.x;
+			xy[1] = this.player.world.y;
             
 		},
 
