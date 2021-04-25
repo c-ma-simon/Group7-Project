@@ -54,6 +54,14 @@ GameStates.makeGame = function (game, shared, shared_index, keys, hints, items, 
 			this.match_1A.inputEnabled = true;
 			
 			hints = this.add.sprite(150, 100, 'hint');
+			
+			//doors
+			this.door_5L = this.add.sprite(200, 200, 'door_side_square_lock');
+			this.door_5L.inputEnabled = true;
+			this.physics.enable(this.door_5L, Phaser.Physics.ARCADE);
+			this.door_5L.body.collideWorldBounds = true;		
+            		//this.game.physics.arcade.enable([this.box_1A],[this.player]);
+            		//this.box_1A.body.onCollide = new Phaser.Signal();
 		
 			//character
 
