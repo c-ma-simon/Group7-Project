@@ -61,6 +61,7 @@ GameStates.makeGame = function (game, shared, shared_index, keys, hints, items, 
 			this.door_5L.body.collideWorldBounds = true;		
             		this.game.physics.arcade.enable([this.door_5L],[this.player]);
             		this.door_5L.body.onCollide = new Phaser.Signal();
+			this.door_5L.body.immovable=true;
 		
 			//character
 
