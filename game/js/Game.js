@@ -93,6 +93,10 @@ GameStates.makeGame = function (game, shared, shared_index, keys, hints, items, 
 			this.physics.arcade.collide(this.player, this.layer);
 			this.physics.arcade.collide(this.box_1A, this.layer);
 			this.physics.arcade.collide(this.box_1A, this.player);
+			//door collisions
+			this.physics.arcade.collide(this.player, this.layer);
+			this.physics.arcade.collide(this.door_5L, this.layer);
+			this.physics.arcade.collide(this.door_5L, this.player);
 
 			if (this.cursors.left.isDown){
 				this.player.body.velocity.x = -300;
