@@ -159,6 +159,10 @@ GameStates.makeGame = function (game, shared, shared_index, keys, hints, items, 
 			sprite.kill();
 			array[array.length] = string;
 		},
+	    	removeItem: function(sprite, array, string){
+			
+			
+		},
 		lockOne: function(){
 			window.shared_index = 0;
 			this.state.start('makePuzzle');
