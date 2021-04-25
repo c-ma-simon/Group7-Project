@@ -80,6 +80,15 @@ GameStates.makePreloader = function( game ) {
             game.load.image('key_1', 'assets/KeyCircle.png');
             game.load.image('key_2', 'assets/KeySquare.png');
             game.load.image('key_3', 'assets/KeyTriangle.png');
+	    //doors
+            game.load.image('door_front_circle_lock', 'assets/DoorFrontCircleLock.png');
+	    game.load.image('door_front_open', 'assets/DoorFrontOpen.png');
+	    game.load.image('door_front_square_lock', 'assets/DoorFrontSquareLock.png');
+	    game.load.image('door_front_tri_lock', 'assets/DoorFrontTriLock.png');
+	    game.load.image('door_side_circle_lock', 'assets/DoorSideCircleLock.png');
+	    game.load.image('door_side_open', 'assets/DoorSideOpen.png');
+	    game.load.image('door_side_square_lock', 'assets/DoorSideSquareLock.png');
+	    game.load.image('door_side_tri_lock', 'assets/DoorSideTriLock.png');
             //items
             game.load.image('match', 'assets/ItemMatch.png');
             game.load.image('box60', 'assets/ItemBox60x.png');
