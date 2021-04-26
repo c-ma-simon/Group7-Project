@@ -69,6 +69,27 @@ GameStates.makeGame = function (game, shared, shared_index, keys, hints, items, 
             		this.game.physics.arcade.enable([this.door_4L],[this.player]);
             		this.door_4L.body.onCollide = new Phaser.Signal();
 			this.door_4L.body.immovable=true;
+			
+			this.door_3L = this.add.sprite(736, 1239, 'door_side_square_lock');
+			this.physics.enable(this.door_3L, Phaser.Physics.ARCADE);
+			this.door_3L.body.collideWorldBounds = true;		
+            		this.game.physics.arcade.enable([this.door_3L],[this.player]);
+            		this.door_3L.body.onCollide = new Phaser.Signal();
+			this.door_3L.body.immovable=true;
+			
+			this.door_2L = this.add.sprite(736, 1439, 'door_side_square_lock');
+			this.physics.enable(this.door_2L, Phaser.Physics.ARCADE);
+			this.door_2L.body.collideWorldBounds = true;		
+            		this.game.physics.arcade.enable([this.door_2L],[this.player]);
+            		this.door_2L.body.onCollide = new Phaser.Signal();
+			this.door_2L.body.immovable=true;
+						
+			this.door_1L = this.add.sprite(736, 1639, 'door_side_square_lock');
+			this.physics.enable(this.door_1L, Phaser.Physics.ARCADE);
+			this.door_1L.body.collideWorldBounds = true;		
+            		this.game.physics.arcade.enable([this.door_1L],[this.player]);
+            		this.door_1L.body.onCollide = new Phaser.Signal();
+			this.door_1L.body.immovable=true;
 		
 			//character
 
@@ -106,6 +127,12 @@ GameStates.makeGame = function (game, shared, shared_index, keys, hints, items, 
 			this.physics.arcade.collide(this.door_5L, this.player);
 			this.physics.arcade.collide(this.door_4L, this.layer);
 			this.physics.arcade.collide(this.door_4L, this.player);
+			this.physics.arcade.collide(this.door_3L, this.layer);
+			this.physics.arcade.collide(this.door_3L, this.player);
+			this.physics.arcade.collide(this.door_2L, this.layer);
+			this.physics.arcade.collide(this.door_2L, this.player);
+			this.physics.arcade.collide(this.door_1L, this.layer);
+			this.physics.arcade.collide(this.door_1L, this.player);
 
 			if (this.cursors.left.isDown){
 				this.player.body.velocity.x = -300;
