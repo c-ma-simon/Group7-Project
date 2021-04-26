@@ -15,7 +15,7 @@ window.onload = function() {
 	var keys = [];
 	var hints = [];
 	var items = [];
-	var xy = [300,1600];
+	var xy = [1110,320];
 	var shared_index = 0;
 	game.state.add( 'Boot', GameStates.makeBoot( game ) );
 	game.state.add('Preloader', GameStates.makePreloader(game));
