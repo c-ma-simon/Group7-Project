@@ -50,7 +50,7 @@ GameStates.makeGame = function (game, shared, shared_index, keys, hints, items, 
 				this.key_1A.inputEnabled = true;
 				this.key_1A.events.onInputDown.add(function () { this.collectItem(this.key_1A, keys, 'key_1'); }, this);
 			}		
-			this.match_1A = this.add.sprite(250, 100, 'match');
+			this.match_1A = this.add.sprite(290, 100, 'match');
 			this.match_1A.inputEnabled = true;
 			
 			hints = this.add.sprite(150, 100, 'hint');
