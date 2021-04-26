@@ -56,14 +56,14 @@ GameStates.makeGame = function (game, shared, shared_index, keys, hints, items, 
 			hints = this.add.sprite(150, 100, 'hint');
 			
 			//doors (floors 5 to 1 corresponds up to down, L=left,C=center,R=Right)
-			this.door_5L = this.add.sprite(737, 289, 'door_side_square_lock');
+			this.door_5L = this.add.sprite(736, 289, 'door_side_square_lock');
 			this.physics.enable(this.door_5L, Phaser.Physics.ARCADE);
 			this.door_5L.body.collideWorldBounds = true;		
             		this.game.physics.arcade.enable([this.door_5L],[this.player]);
             		this.door_5L.body.onCollide = new Phaser.Signal();
 			this.door_5L.body.immovable=true;
 			
-			this.door_4L = this.add.sprite(737, 989, 'door_side_square_lock');
+			this.door_4L = this.add.sprite(736, 889, 'door_side_square_lock');
 			this.physics.enable(this.door_4L, Phaser.Physics.ARCADE);
 			this.door_4L.body.collideWorldBounds = true;		
             		this.game.physics.arcade.enable([this.door_4L],[this.player]);
