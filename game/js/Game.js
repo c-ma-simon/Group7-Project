@@ -91,7 +91,7 @@ GameStates.makeGame = function (game, shared, shared_index, keys, hints, items, 
             		this.door_4R.body.onCollide = new Phaser.Signal();
 			this.door_4R.body.immovable=true;
 			
-			this.door_4C = this.add.sprite(1088, 736, 'door_front_circle_lock');
+			this.door_4C = this.add.sprite(1088, 608, 'door_front_circle_lock');
 			this.physics.enable(this.door_4C, Phaser.Physics.ARCADE);
 			this.door_4C.body.collideWorldBounds = true;		
             		this.game.physics.arcade.enable([this.door_4C],[this.player]);
@@ -112,7 +112,7 @@ GameStates.makeGame = function (game, shared, shared_index, keys, hints, items, 
             		this.door_3R.body.onCollide = new Phaser.Signal();
 			this.door_3R.body.immovable=true;
 						
-			this.door_3C = this.add.sprite(1088, 1120, 'door_front_circle_lock');
+			this.door_3C = this.add.sprite(1088, 1248, 'door_front_circle_lock');
 			this.physics.enable(this.door_3C, Phaser.Physics.ARCADE);
 			this.door_3C.body.collideWorldBounds = true;		
             		this.game.physics.arcade.enable([this.door_3C],[this.player]);
