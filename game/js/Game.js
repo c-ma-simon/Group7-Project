@@ -63,28 +63,28 @@ GameStates.makeGame = function (game, shared, shared_index, keys, hints, items, 
             		this.door_5L.body.onCollide = new Phaser.Signal();
 			this.door_5L.body.immovable=true;
 			
-			this.door_4L = this.add.sprite(736, 939, 'door_side_square_lock');
+			this.door_4L = this.add.sprite(736, 919, 'door_side_square_lock');
 			this.physics.enable(this.door_4L, Phaser.Physics.ARCADE);
 			this.door_4L.body.collideWorldBounds = true;		
             		this.game.physics.arcade.enable([this.door_4L],[this.player]);
             		this.door_4L.body.onCollide = new Phaser.Signal();
 			this.door_4L.body.immovable=true;
 			
-			this.door_3L = this.add.sprite(736, 1239, 'door_side_square_lock');
+			this.door_3L = this.add.sprite(736, 1839, 'door_side_square_lock');
 			this.physics.enable(this.door_3L, Phaser.Physics.ARCADE);
 			this.door_3L.body.collideWorldBounds = true;		
             		this.game.physics.arcade.enable([this.door_3L],[this.player]);
             		this.door_3L.body.onCollide = new Phaser.Signal();
 			this.door_3L.body.immovable=true;
 			
-			this.door_2L = this.add.sprite(736, 1439, 'door_side_square_lock');
+			this.door_2L = this.add.sprite(736, 2039, 'door_side_square_lock');
 			this.physics.enable(this.door_2L, Phaser.Physics.ARCADE);
 			this.door_2L.body.collideWorldBounds = true;		
             		this.game.physics.arcade.enable([this.door_2L],[this.player]);
             		this.door_2L.body.onCollide = new Phaser.Signal();
 			this.door_2L.body.immovable=true;
 						
-			this.door_1L = this.add.sprite(736, 1639, 'door_side_square_lock');
+			this.door_1L = this.add.sprite(736, 2239, 'door_side_square_lock');
 			this.physics.enable(this.door_1L, Phaser.Physics.ARCADE);
 			this.door_1L.body.collideWorldBounds = true;		
             		this.game.physics.arcade.enable([this.door_1L],[this.player]);
