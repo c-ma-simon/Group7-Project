@@ -55,13 +55,20 @@ GameStates.makeGame = function (game, shared, shared_index, keys, hints, items, 
 			
 			hints = this.add.sprite(150, 100, 'hint');
 			
-			//doors
+			//doors (floors 5 to 1 corresponds up to down, L=left,C=center,R=Right)
 			this.door_5L = this.add.sprite(737, 289, 'door_side_square_lock');
 			this.physics.enable(this.door_5L, Phaser.Physics.ARCADE);
 			this.door_5L.body.collideWorldBounds = true;		
             		this.game.physics.arcade.enable([this.door_5L],[this.player]);
             		this.door_5L.body.onCollide = new Phaser.Signal();
 			this.door_5L.body.immovable=true;
+			
+			this.door_4L = this.add.sprite(737, 589, 'door_side_square_lock');
+			this.physics.enable(this.door_4L, Phaser.Physics.ARCADE);
+			this.door_4L.body.collideWorldBounds = true;		
+            		this.game.physics.arcade.enable([this.door_4L],[this.player]);
+            		this.door_4L.body.onCollide = new Phaser.Signal();
+			this.door_4L.body.immovable=true;
 		
 			//character
 
@@ -95,9 +102,10 @@ GameStates.makeGame = function (game, shared, shared_index, keys, hints, items, 
 			this.physics.arcade.collide(this.box_1A, this.layer);
 			this.physics.arcade.collide(this.box_1A, this.player);
 			//door collisions
-			this.physics.arcade.collide(this.player, this.layer);
 			this.physics.arcade.collide(this.door_5L, this.layer);
 			this.physics.arcade.collide(this.door_5L, this.player);
+			this.physics.arcade.collide(this.door_4L, this.layer);
+			this.physics.arcade.collide(this.door_4L, this.player);
 
 			if (this.cursors.left.isDown){
 				this.player.body.velocity.x = -300;
