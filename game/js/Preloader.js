@@ -82,13 +82,25 @@ GameStates.makePreloader = function( game ) {
             game.load.image('key_3', 'assets/KeyTriangle.png');
 	    //doors
             game.load.image('door_front_circle_lock', 'assets/DoorFrontCircleLock.png');
-	    game.load.image('door_front_open', 'assets/DoorFrontOpen.png');
-	    game.load.image('door_front_square_lock', 'assets/DoorFrontSquareLock.png');
-	    game.load.image('door_front_tri_lock', 'assets/DoorFrontTriLock.png');
-	    game.load.image('door_side_circle_lock', 'assets/DoorSideCircleLock.png');
-	    game.load.image('door_side_open', 'assets/DoorSideOpen.png');
+	    game.load.image('door_front_circle_lock2', 'assets/DoorFrontCircleLock.png');
+	    game.load.image('door_front_circle_lock3', 'assets/DoorFrontCircleLock.png');
+	    game.load.image('door_front_circle_lock4', 'assets/DoorFrontCircleLock.png');
+	    game.load.image('door_front_circle_lock5', 'assets/DoorFrontCircleLock.png');
+	    //game.load.image('door_front_open', 'assets/DoorFrontOpen.png'); unused
+	    //game.load.image('door_front_square_lock', 'assets/DoorFrontSquareLock.png'); unused
+	    //game.load.image('door_front_tri_lock', 'assets/DoorFrontTriLock.png'); unused
+	    //game.load.image('door_side_circle_lock', 'assets/DoorSideCircleLock.png'); unused
+	    //game.load.image('door_side_open', 'assets/DoorSideOpen.png'); unused
 	    game.load.image('door_side_square_lock', 'assets/DoorSideSquareLock.png');
+	    game.load.image('door_side_square_lock2', 'assets/DoorSideSquareLock.png');
+	    game.load.image('door_side_square_lock3', 'assets/DoorSideSquareLock.png');
+	    game.load.image('door_side_square_lock4', 'assets/DoorSideSquareLock.png');
+	    game.load.image('door_side_square_lock5', 'assets/DoorSideSquareLock.png');
 	    game.load.image('door_side_tri_lock', 'assets/DoorSideTriLock.png');
+	    game.load.image('door_side_tri_lock2', 'assets/DoorSideTriLock.png');
+	    game.load.image('door_side_tri_lock3', 'assets/DoorSideTriLock.png');
+	    game.load.image('door_side_tri_lock4', 'assets/DoorSideTriLock.png');
+	    game.load.image('door_side_tri_lock5', 'assets/DoorSideTriLock.png');
             //items
             game.load.image('match', 'assets/ItemMatch.png');
             game.load.image('box60', 'assets/ItemBox60x.png');
