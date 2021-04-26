@@ -77,6 +77,13 @@ GameStates.makeGame = function (game, shared, shared_index, keys, hints, items, 
             		this.door_4L.body.onCollide = new Phaser.Signal();
 			this.door_4L.body.immovable=true;
 			
+			this.door_4R = this.add.sprite(1492, 929, 'door_side_tri_lock');
+			this.physics.enable(this.door_4R, Phaser.Physics.ARCADE);
+			this.door_4R.body.collideWorldBounds = true;		
+            		this.game.physics.arcade.enable([this.door_4R],[this.player]);
+            		this.door_4R.body.onCollide = new Phaser.Signal();
+			this.door_4R.body.immovable=true;
+			
 			this.door_3L = this.add.sprite(736, 1569, 'door_side_square_lock');
 			this.physics.enable(this.door_3L, Phaser.Physics.ARCADE);
 			this.door_3L.body.collideWorldBounds = true;		
@@ -84,12 +91,26 @@ GameStates.makeGame = function (game, shared, shared_index, keys, hints, items, 
             		this.door_3L.body.onCollide = new Phaser.Signal();
 			//this.door_3L.body.immovable=true;
 			
+			this.door_3R = this.add.sprite(1492, 1569, 'door_side_tri_lock');
+			this.physics.enable(this.door_3R, Phaser.Physics.ARCADE);
+			this.door_3R.body.collideWorldBounds = true;		
+            		this.game.physics.arcade.enable([this.door_3R],[this.player]);
+            		this.door_3R.body.onCollide = new Phaser.Signal();
+			this.door_3R.body.immovable=true;
+			
 			this.door_2L = this.add.sprite(736, 2209, 'door_side_square_lock');
 			this.physics.enable(this.door_2L, Phaser.Physics.ARCADE);
 			this.door_2L.body.collideWorldBounds = true;		
             		this.game.physics.arcade.enable([this.door_2L],[this.player]);
             		this.door_2L.body.onCollide = new Phaser.Signal();
 			this.door_2L.body.immovable=true;
+			
+			this.door_2R = this.add.sprite(1492, 2209, 'door_side_tri_lock');
+			this.physics.enable(this.door_2R, Phaser.Physics.ARCADE);
+			this.door_2R.body.collideWorldBounds = true;		
+            		this.game.physics.arcade.enable([this.door_2R],[this.player]);
+            		this.door_2R.body.onCollide = new Phaser.Signal();
+			this.door_2R.body.immovable=true;
 						
 			this.door_1L = this.add.sprite(736, 2849, 'door_side_square_lock');
 			this.physics.enable(this.door_1L, Phaser.Physics.ARCADE);
@@ -98,6 +119,13 @@ GameStates.makeGame = function (game, shared, shared_index, keys, hints, items, 
             		this.door_1L.body.onCollide = new Phaser.Signal();
 			this.door_1L.body.immovable=true;
 		
+			this.door_1R = this.add.sprite(1492, 2849, 'door_side_tri_lock');
+			this.physics.enable(this.door_1R, Phaser.Physics.ARCADE);
+			this.door_1R.body.collideWorldBounds = true;		
+            		this.game.physics.arcade.enable([this.door_1R],[this.player]);
+            		this.door_1R.body.onCollide = new Phaser.Signal();
+			this.door_1R.body.immovable=true;
+			
 			//character
 
 			this.player = this.add.sprite(xy[0], xy[1], 'locke');
@@ -136,12 +164,20 @@ GameStates.makeGame = function (game, shared, shared_index, keys, hints, items, 
 			this.physics.arcade.collide(this.door_5R, this.player);
 			this.physics.arcade.collide(this.door_4L, this.layer);
 			this.physics.arcade.collide(this.door_4L, this.player);
+			this.physics.arcade.collide(this.door_4R, this.layer);
+			this.physics.arcade.collide(this.door_4R, this.player);
 			this.physics.arcade.collide(this.door_3L, this.layer);
 			this.physics.arcade.collide(this.door_3L, this.player);
+			this.physics.arcade.collide(this.door_3R, this.layer);
+			this.physics.arcade.collide(this.door_3R, this.player);
 			this.physics.arcade.collide(this.door_2L, this.layer);
 			this.physics.arcade.collide(this.door_2L, this.player);
+			this.physics.arcade.collide(this.door_2R, this.layer);
+			this.physics.arcade.collide(this.door_2R, this.player);
 			this.physics.arcade.collide(this.door_1L, this.layer);
-			this.physics.arcade.collide(this.door_1L, this.player);
+			this.physics.arcade.collide(this.door_1L, this.player);			
+			this.physics.arcade.collide(this.door_1R, this.layer);
+			this.physics.arcade.collide(this.door_1R, this.player);
 
 			if (this.cursors.left.isDown){
 				this.player.body.velocity.x = -300;
