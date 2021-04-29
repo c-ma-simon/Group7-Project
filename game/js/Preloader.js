@@ -86,11 +86,7 @@ GameStates.makePreloader = function( game ) {
 	    game.load.image('door_front_circle_lock3', 'assets/DoorFrontCircleLock.png');
 	    game.load.image('door_front_circle_lock4', 'assets/DoorFrontCircleLock.png');
 	    game.load.image('door_front_circle_lock5', 'assets/DoorFrontCircleLock.png');
-	    //game.load.image('door_front_open', 'assets/DoorFrontOpen.png'); unused
-	    //game.load.image('door_front_square_lock', 'assets/DoorFrontSquareLock.png'); unused
-	    //game.load.image('door_front_tri_lock', 'assets/DoorFrontTriLock.png'); unused
-	    //game.load.image('door_side_circle_lock', 'assets/DoorSideCircleLock.png'); unused
-	    //game.load.image('door_side_open', 'assets/DoorSideOpen.png'); unused
+	    game.load.image('door_front_star_lock', 'assets/DoorFrontStarLock.png');
 	    game.load.image('door_side_square_lock', 'assets/DoorSideSquareLock.png');
 	    game.load.image('door_side_square_lock2', 'assets/DoorSideSquareLock.png');
 	    game.load.image('door_side_square_lock3', 'assets/DoorSideSquareLock.png');
