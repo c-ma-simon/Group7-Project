@@ -77,9 +77,22 @@ GameStates.makePreloader = function( game ) {
 			game.load.image('temp_lock_1', 'assets/yellow circle.png');
             game.load.image('temp_lock_2', 'assets/red circle.png');
             //keys
-            game.load.image('key_1', 'assets/KeyCircle.png');
-            game.load.image('key_2', 'assets/KeySquare.png');
-            game.load.image('key_3', 'assets/KeyTriangle.png');
+            game.load.image('key_C1', 'assets/KeyCircle.png');
+	    game.load.image('key_C2', 'assets/KeyCircle.png');
+	    game.load.image('key_C3', 'assets/KeyCircle.png');
+	    game.load.image('key_C4', 'assets/KeyCircle.png');
+	    game.load.image('key_C5', 'assets/KeyCircle.png');
+            game.load.image('key_S1', 'assets/KeySquare.png');
+            game.load.image('key_S2', 'assets/KeySquare.png');
+	    game.load.image('key_S3', 'assets/KeySquare.png');
+	    game.load.image('key_S4', 'assets/KeySquare.png');
+	    game.load.image('key_S5', 'assets/KeySquare.png');
+            game.load.image('key_T1', 'assets/KeyTriangle.png');
+	    game.load.image('key_T2', 'assets/KeyTriangle.png');
+	    game.load.image('key_T3', 'assets/KeyTriangle.png');
+	    game.load.image('key_T4', 'assets/KeyTriangle.png');
+	    game.load.image('key_T5', 'assets/KeyTriangle.png');
+            game.load.image('key_X', 'assets/KeyStar.png');
 	    //doors
             game.load.image('door_front_circle_lock', 'assets/DoorFrontCircleLock.png');
 	    game.load.image('door_front_circle_lock2', 'assets/DoorFrontCircleLock.png');
