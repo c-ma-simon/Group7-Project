@@ -52,7 +52,7 @@ GameStates.makeGame = function (game, shared, shared_index, keys, hints, items, 
 			}		
 			
 			if (keys.includes('key_S1') == false) {
-				this.key_5L = this.add.sprite(988, 929, 'key_S1');
+				this.key_5L = this.add.sprite(988, 289, 'key_S1');
 				this.key_5L.inputEnabled = true;
 				this.key_5L.events.onInputDown.add(function () { this.collectItem(this.key_5L, keys, 'key_S1'); }, this);
 			}		
