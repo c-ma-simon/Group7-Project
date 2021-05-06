@@ -18,7 +18,7 @@ GameStates.makeGame = function (game, shared, shared_index, keys, hints, items, 
 		736, 1492, 1088,
 		736, 1492, 1088,
 		736, 1492, 1088];
-	//x coordinates
+	//y coordinates
 	var y_door = [289, 289, 33,
 		929, 929, 608,
 		1569, 1569, 1248,
