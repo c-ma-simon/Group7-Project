@@ -28,11 +28,11 @@ GameStates.makeGame = function (game, shared, shared_index, keys, hints, items, 
 	var doors = [];
 	//names off all keys? Keys might need to be renamed later depending on what they were called in the preloader
 	//these key names are in the same order that the door_names are (i.e. you must have 'key_ss5' to unlock 'door_side_square_lock5')
-	var door_keys = ['key_ss5', 'key_st5', 'key_X',
-		'key_ss4', 'key_st4', 'key_sc4',
-		'key_ss3', 'key_st3', 'key_sc3',
-		'key_ss2', 'key_st2', 'key_sc2',
-		'key_ss', 'key_st', 'key_sc'];
+	var door_keys = ['key_S5', 'key_T5', 'key_X',
+		'key_S4', 'key_T4', 'key_C4',
+		'key_S3', 'key_T3', 'key_C3',
+		'key_S2', 'key_T2', 'key_C2',
+		'key_S1', 'key_T1', 'key_C1'];
 	//unlocked doors names are stored in here
 	var unlocked_doors = [];
 	//used door keys are stored in here
@@ -83,10 +83,10 @@ GameStates.makeGame = function (game, shared, shared_index, keys, hints, items, 
 				this.key_1A.events.onInputDown.add(function () { this.collectItem(this.key_1A, keys, 'key_C1'); }, this);
 			}
 
-			if (keys.includes('key_ss5') == false) {
-				this.key_5L = this.add.sprite(988, 289, 'key_ss5');
+			if (keys.includes('key_S5') == false) {
+				this.key_5L = this.add.sprite(988, 289, 'key_S5');
 				this.key_5L.inputEnabled = true;
-				this.key_5L.events.onInputDown.add(function () { this.collectItem(this.key_5L, keys, 'key_ss5'); }, this);
+				this.key_5L.events.onInputDown.add(function () { this.collectItem(this.key_5L, keys, 'key_S5'); }, this);
 			}
 			//note: you must also check used keys or else it will re-spawn after removing them from inventory  
 			if (keys.includes('key_X') == false && used_keys.includes('key_X') == false) {
