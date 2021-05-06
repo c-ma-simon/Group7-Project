@@ -6,21 +6,25 @@ GameStates.makeGame = function (game, shared, shared_index, keys, hints, items, 
     shared[0] = 'HELLO';
 	shared[1] = 'WORLD';
 	shared[2] = '12345';
+	
 	var door_names = ['door_side_square_lock5', 'door_side_tri_lock5', 'door_front_star_lock',
 		'door_side_square_lock4', 'door_side_tri_lock4', 'door_front_circle_lock4',
 		'door_side_square_lock3', 'door_side_tri_lock3', 'door_front_circle_lock3',
 		'door_side_square_lock2', 'door_side_tri_lock2', 'door_front_circle_lock2',
 		'door_side_square_lock', 'door_side_tri_lock2', 'door_front_circle_lock2']; 
+	//all of the x coordinates of each door in order
 	var x_door = [736, 1492, 1088,
 		736, 1492, 1088,
 		736, 1492, 1088,
 		736, 1492, 1088,
 		736, 1492, 1088];
+	//x coordinates
 	var y_door = [289, 289, 33,
 		929, 929, 608,
 		1569, 1569, 1248,
 		2209, 2209, 1888,
 		2849, 2849, 2528];
+	//door sprites are stored in here, which will be used for collisions 
 	var doors = [];
 	//names off all keys? Keys might need to be renamed later depending on what they were called in the preloader
 	//these key names are in the same order that the door_names are (i.e. you must have 'key_ss5' to unlock 'door_side_square_lock5')
@@ -29,8 +33,11 @@ GameStates.makeGame = function (game, shared, shared_index, keys, hints, items, 
 		'key_ss3', 'key_st3', 'key_sc3',
 		'key_ss2', 'key_st2', 'key_sc2',
 		'key_ss', 'key_st', 'key_sc'];
+	//unlocked doors names are stored in here
 	var unlocked_doors = [];
+	//used door keys are stored in here
 	var used_keys = [];
+
     return {
 		//adds all assets and things used in the game
 		//currently, there is only the player and physics 
@@ -91,7 +98,12 @@ GameStates.makeGame = function (game, shared, shared_index, keys, hints, items, 
 			this.match_1A.inputEnabled = true;
 
 			hints = this.add.sprite(150, 100, 'hint');
+
 			//add doors
+			//goes through all doors in doors_names
+			//checks to see if they were unlocked
+			//adds any locked doors
+			//unlocked doors will be replaced with null in the doors array
 			for (var i = 0; i < door_names.length; i++) {
 				if (unlocked_doors.includes(door_names[i]) == false) {
 					doors[i] = this.add.sprite(x_door[i], y_door[i], door_names[i]);
@@ -105,7 +117,10 @@ GameStates.makeGame = function (game, shared, shared_index, keys, hints, items, 
 				else {
 					doors[i] == null;
                 }
-            }
+			}
+			//old code that should be deleted later
+
+
 			//doors (floors 5 to 1 corresponds up to down, L=left,C=center,R=Right)
 			/*
 			if (unlocked_doors.includes('door_side_square_lock5') == false) { 88
@@ -232,6 +247,10 @@ GameStates.makeGame = function (game, shared, shared_index, keys, hints, items, 
             		this.door_1C.body.onCollide = new Phaser.Signal();
 			//this.door_1C.body.immovable=true;
 			*/
+
+			//end of old code
+
+
 			//character
 
 			this.player = this.add.sprite(xy[0], xy[1], 'locke');
@@ -265,13 +284,18 @@ GameStates.makeGame = function (game, shared, shared_index, keys, hints, items, 
 			this.physics.arcade.collide(this.box_1A, this.player);
 
 			//door collisions
+			//goes through each name in door_names
+			//checks to see if was unlcoked earlier
+			//if it was not, it will collide
+			//each collision call the function unlockDoor()
 			for (var i = 0; i < door_names.length; i++) {
 				if (unlocked_doors.includes(door_names[i]) == false) {
 					this.physics.arcade.collide(doors[i], this.layer);
 					this.physics.arcade.collide(doors[i], this.player, this.unlockDoor, null, this);
-					//game.physics.arcade.overlap(doors[i], this.player, this.unlockDoor, null, this)
 				}
 			}
+
+
 			/*
 			this.physics.arcade.collide(this.door_5L, this.layer);
 			this.physics.arcade.collide(this.door_5L, this.player);
@@ -304,6 +328,8 @@ GameStates.makeGame = function (game, shared, shared_index, keys, hints, items, 
 			this.physics.arcade.collide(this.door_1C, this.layer);
 			this.physics.arcade.collide(this.door_1C, this.player);
 			*/
+
+			//character movement
 			if (this.cursors.left.isDown){
 				this.player.body.velocity.x = -300;
 
@@ -365,19 +391,30 @@ GameStates.makeGame = function (game, shared, shared_index, keys, hints, items, 
                 
 				}
 			}
+
+			//saves coordinates that the player was at last
+			//NOTE: the array xy is in main.js, which has the original
+			//spawn points
 			xy[0] = this.player.world.x;
 			xy[1] = this.player.world.y;
             
 		},
+
+		//adds door to doors array
 		addDoor: function (sprite) {
 			doors[doors.length] = sprite;
-        },
+		},
+
 		//removes item from an array
 		removeItem: function(string, array){
 			const index = array.indexOf(string);
 			array.splice(index, 1);
 		}, 
+
 		//checks to see if door can be unlocked an unlocks it
+		//unlocked doors are killed and replaced with null in doors array
+		//it will be added to the unlocked doors array and the key
+		//will be added to the used keys array
 		unlockDoor: function (door, player) {
 			var index = doors.indexOf(door);
 			if (keys.includes(door_keys[index])) {
@@ -394,6 +431,7 @@ GameStates.makeGame = function (game, shared, shared_index, keys, hints, items, 
 			sprite.kill();
 			array[array.length] = string;
 		},
+
 		lockOne: function(){
 			window.shared_index = 0;
 			this.state.start('makePuzzle');
