@@ -94,6 +94,12 @@ GameStates.makeGame = function (game, shared, shared_index, keys, hints, items, 
 				this.key_5R.inputEnabled = true;
 				this.key_5R.events.onInputDown.add(function () { this.collectItem(this.key_5R, keys, 'key_T5'); }, this);
 			}
+			
+			if (keys.includes('key_C4') == false) {
+				this.key_4C = this.add.sprite(1896, 316, 'key_C4');
+				this.key_4C.inputEnabled = true;
+				this.key_4C.events.onInputDown.add(function () { this.collectItem(this.key_4C, keys, 'key_C4'); }, this);
+			}
 			//note: you must also check used keys or else it will re-spawn after removing them from inventory  
 			if (keys.includes('key_X') == false && used_keys.includes('key_X') == false) {
 				this.bossKey = this.add.sprite(1088, 200, 'key_X');
