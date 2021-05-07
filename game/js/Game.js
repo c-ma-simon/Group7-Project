@@ -218,6 +218,13 @@ GameStates.makeGame = function (game, shared, shared_index, keys, hints, items, 
             		this.box_1A.body.onCollide = new Phaser.Signal();
 
 
+			this.box_2A = this.add.sprite(1896, 316, 'box60');
+			this.box_2A.inputEnabled = true;
+			this.physics.enable(this.box_2A, Phaser.Physics.ARCADE);
+			this.box_2A.body.collideWorldBounds = true;
+            		this.game.physics.arcade.enable([this.box_2A],[this.player]);
+            		this.box_2A.body.onCollide = new Phaser.Signal();
+			
 			//foreground of tilemap
 			//this.bg = this.map.createLayer('foreground');
 		},
