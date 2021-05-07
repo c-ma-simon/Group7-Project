@@ -234,6 +234,8 @@ GameStates.makeGame = function (game, shared, shared_index, keys, hints, items, 
 			this.physics.arcade.collide(this.player, this.layer);
 			this.physics.arcade.collide(this.box_1A, this.layer);
 			this.physics.arcade.collide(this.box_1A, this.player);
+			this.physics.arcade.collide(this.box_2A, this.layer);
+			this.physics.arcade.collide(this.box_2A, this.player);
 
 			//door collisions
 			//goes through each name in door_names
