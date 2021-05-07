@@ -11,7 +11,7 @@ GameStates.makeGame = function (game, shared, shared_index, keys, hints, items, 
 		'door_side_square_lock4', 'door_side_tri_lock4', 'door_front_circle_lock4',
 		'door_side_square_lock3', 'door_side_tri_lock3', 'door_front_circle_lock3',
 		'door_side_square_lock2', 'door_side_tri_lock2', 'door_front_circle_lock2',
-		'door_side_square_lock', 'door_side_tri_lock2', 'door_front_circle_lock2']; 
+		'door_side_square_lock', 'door_side_tri_lock', 'door_front_circle_lock']; 
 	//all of the x coordinates of each door in order
 	var x_door = [736, 1492, 1088,
 		736, 1492, 1088,
