@@ -217,13 +217,26 @@ GameStates.makeGame = function (game, shared, shared_index, keys, hints, items, 
             		this.game.physics.arcade.enable([this.box_1A],[this.player]);
             		this.box_1A.body.onCollide = new Phaser.Signal();
 
-
 			this.box_2A = this.add.sprite(1896, 316, 'box60');
 			this.box_2A.inputEnabled = true;
 			this.physics.enable(this.box_2A, Phaser.Physics.ARCADE);
 			this.box_2A.body.collideWorldBounds = true;
             		this.game.physics.arcade.enable([this.box_2A],[this.player]);
             		this.box_2A.body.onCollide = new Phaser.Signal();
+			
+			this.box_2B = this.add.sprite(1836, 316, 'box60');
+			this.box_2B.inputEnabled = true;
+			this.physics.enable(this.box_2B, Phaser.Physics.ARCADE);
+			this.box_2B.body.collideWorldBounds = true;
+            		this.game.physics.arcade.enable([this.box_2B],[this.player]);
+            		this.box_2B.body.onCollide = new Phaser.Signal();
+			
+			this.box_2C = this.add.sprite(1956, 316, 'box60');
+			this.box_2C.inputEnabled = true;
+			this.physics.enable(this.box_2C, Phaser.Physics.ARCADE);
+			this.box_2C.body.collideWorldBounds = true;
+            		this.game.physics.arcade.enable([this.box_2C],[this.player]);
+            		this.box_2C.body.onCollide = new Phaser.Signal();
 			
 			//foreground of tilemap
 			//this.bg = this.map.createLayer('foreground');
@@ -236,6 +249,10 @@ GameStates.makeGame = function (game, shared, shared_index, keys, hints, items, 
 			this.physics.arcade.collide(this.box_1A, this.player);
 			this.physics.arcade.collide(this.box_2A, this.layer);
 			this.physics.arcade.collide(this.box_2A, this.player);
+			this.physics.arcade.collide(this.box_2B, this.layer);
+			this.physics.arcade.collide(this.box_2B, this.player);
+			this.physics.arcade.collide(this.box_2C, this.layer);
+			this.physics.arcade.collide(this.box_2C, this.player);
 
 			//door collisions
 			//goes through each name in door_names
