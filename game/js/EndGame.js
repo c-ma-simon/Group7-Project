@@ -15,7 +15,7 @@ GameStates.endGame = function(game, shared, keys, hints, items, shared_index){
   return{
     create: function(){
       //add background
-     this.background = game.sprite(0,0, 'background');
+     this.background = game.add.sprite(0,0, 'background');
       //add Game exited text
      text = game.add.text(x, y, '', style);
      text.parseList(gameexit);

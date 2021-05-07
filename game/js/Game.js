@@ -27,7 +27,7 @@ GameStates.makeGame = function (game, shared, shared_index, keys, hints, items, 
 	//door sprites are stored in here, which will be used for collisions 
 	var doors = [];
 	//names off all keys? Keys might need to be renamed later depending on what they were called in the preloader
-	//these key names are in the same order that the door_names are (i.e. you must have 'key_ss5' to unlock 'door_side_square_lock5')
+	//these key names are in the same order that the door_names are (i.e. you must have 'key_S5' to unlock 'door_side_square_lock5')
 	var door_keys = ['key_S5', 'key_T5', 'key_X',
 		'key_S4', 'key_T4', 'key_C4',
 		'key_S3', 'key_T3', 'key_C3',
@@ -44,7 +44,6 @@ GameStates.makeGame = function (game, shared, shared_index, keys, hints, items, 
 		create: function () {
 			this.cursors = this.input.keyboard.createCursorKeys();
 
-			//this.stage.backgroundColor = '#BFF068';
 			this.mapfloor = this.add.sprite(0, 32, 'mapfloor');//floor is a big image instead of tiles
 
 			//tilemap
@@ -53,14 +52,6 @@ GameStates.makeGame = function (game, shared, shared_index, keys, hints, items, 
 			this.map.setCollisionByExclusion([0, -1]);
 
 			this.mapwall = this.add.sprite(0, 32, 'mapwall');//cover up flickering wall tiles attempt
-
-			//this.map = this.game.add.tilemap('testmap1');
-			//this.map.addTilesetImage('CSprojecttiles00');
-			//this.map.setCollisionByExclusion([0, -1]);
-
-			//this.bg = this.map.createLayer('tile floor');
-			//this.bg.resizeWorld();
-			//this.bg.cameraOffset.set(0, 0);
 
 			this.layer = this.map.createLayer('tile wall');
 			this.layer.resizeWorld();
@@ -99,7 +90,7 @@ GameStates.makeGame = function (game, shared, shared_index, keys, hints, items, 
 
 			hints = this.add.sprite(150, 100, 'hint');
 
-			//add doors
+			
 			//goes through all doors in doors_names
 			//checks to see if they were unlocked
 			//adds any locked doors
@@ -118,139 +109,6 @@ GameStates.makeGame = function (game, shared, shared_index, keys, hints, items, 
 					doors[i] == null;
                 }
 			}
-			//old code that should be deleted later
-
-
-			//doors (floors 5 to 1 corresponds up to down, L=left,C=center,R=Right)
-			/*
-			if (unlocked_doors.includes('door_side_square_lock5') == false) { 88
-				this.door_5L = this.add.sprite(736, 289, 'door_side_square_lock5');
-				this.physics.enable(this.door_5L, Phaser.Physics.ARCADE);
-				this.door_5L.body.collideWorldBounds = true;
-				this.game.physics.arcade.enable([this.door_5L], [this.player]);
-				this.door_5L.body.onCollide = new Phaser.Signal();
-				//this.door_5L.body.immovable=true;
-
-				//NOTE: "key_word" needs to be changed to the correct key!
-				this.addDoor(this.door_5L, "key_word");
-			}
-			
-			if (unlocked_doors.includes('door_side_tri_lock5') == false) { 88
-				this.door_5R = this.add.sprite(1492, 289, 'door_side_tri_lock5');
-				this.physics.enable(this.door_5R, Phaser.Physics.ARCADE);
-				this.door_5R.body.collideWorldBounds = true;
-				this.game.physics.arcade.enable([this.door_5R], [this.player]);
-				this.door_5R.body.onCollide = new Phaser.Signal();
-				this.door_5R.body.immovable = true;
-
-				//NOTE: "key_word" needs to be changed to the correct key!
-				this.addDoor(this.door_5R, "key_word");
-			}
-			if (unlocked_doors.includes('door_front_star_lock5') == false) { 88
-				this.door_5C = this.add.sprite(1088, 33, 'door_front_star_lock');
-				this.physics.enable(this.door_5C, Phaser.Physics.ARCADE);
-				this.door_5C.body.collideWorldBounds = true;
-				this.game.physics.arcade.enable([this.door_5C], [this.player]);
-				this.door_5C.body.onCollide = new Phaser.Signal();
-				this.door_5C.body.immovable = true;
-
-				//NOTE: "key_word" needs to be changed to the correct key!
-				this.addDoor(this.door_5C, "key_word");
-			}
-			if (unlocked_doors.includes('door_side_square_lock4') == false) {
-				this.door_4L = this.add.sprite(736, 929, 'door_side_square_lock4');
-				this.physics.enable(this.door_4L, Phaser.Physics.ARCADE);
-				this.door_4L.body.collideWorldBounds = true;
-				this.game.physics.arcade.enable([this.door_4L], [this.player]);
-				this.door_4L.body.onCollide = new Phaser.Signal();
-				this.door_4L.body.immovable = true;
-
-				//NOTE: "key_word" needs to be changed to the correct key!
-				this.addDoor(this.door_4L, "key_word");
-			}
-			if (unlocked_doors.includes('door_side_tri_lock4') == false) {
-				this.door_4R = this.add.sprite(1492, 929, 'door_side_tri_lock4');
-				this.physics.enable(this.door_4R, Phaser.Physics.ARCADE);
-				this.door_4R.body.collideWorldBounds = true;
-				this.game.physics.arcade.enable([this.door_4R], [this.player]);
-				this.door_4R.body.onCollide = new Phaser.Signal();
-				this.door_4R.body.immovable = true;
-			}
-			if (unlocked_doors.includes('door_front_circle_lock4') == false) {
-				this.door_4C = this.add.sprite(1088, 608, 'door_front_circle_lock4');
-				this.physics.enable(this.door_4C, Phaser.Physics.ARCADE);
-				this.door_4C.body.collideWorldBounds = true;
-				this.game.physics.arcade.enable([this.door_4C], [this.player]);
-				this.door_4C.body.onCollide = new Phaser.Signal();
-				//this.door_4C.body.immovable=true;
-			}
-			this.door_3L = this.add.sprite(736, 1569, 'door_side_square_lock3');
-			this.physics.enable(this.door_3L, Phaser.Physics.ARCADE);
-			this.door_3L.body.collideWorldBounds = true;		
-            this.game.physics.arcade.enable([this.door_3L],[this.player]);
-            this.door_3L.body.onCollide = new Phaser.Signal();
-			this.door_3L.body.immovable=true;
-			
-			this.door_3R = this.add.sprite(1492, 1569, 'door_side_tri_lock3');
-			this.physics.enable(this.door_3R, Phaser.Physics.ARCADE);
-			this.door_3R.body.collideWorldBounds = true;		
-            this.game.physics.arcade.enable([this.door_3R],[this.player]);
-            this.door_3R.body.onCollide = new Phaser.Signal();
-			this.door_3R.body.immovable=true;
-						
-			this.door_3C = this.add.sprite(1088, 1248, 'door_front_circle_lock3');
-			this.physics.enable(this.door_3C, Phaser.Physics.ARCADE);
-			this.door_3C.body.collideWorldBounds = true;		
-            		this.game.physics.arcade.enable([this.door_3C],[this.player]);
-            		this.door_3C.body.onCollide = new Phaser.Signal();
-			//this.door_3C.body.immovable=true;
-			
-			this.door_2L = this.add.sprite(736, 2209, 'door_side_square_lock2');
-			this.physics.enable(this.door_2L, Phaser.Physics.ARCADE);
-			this.door_2L.body.collideWorldBounds = true;		
-            		this.game.physics.arcade.enable([this.door_2L],[this.player]);
-            		this.door_2L.body.onCollide = new Phaser.Signal();
-			this.door_2L.body.immovable=true;
-			
-			this.door_2R = this.add.sprite(1492, 2209, 'door_side_tri_lock2');
-			this.physics.enable(this.door_2R, Phaser.Physics.ARCADE);
-			this.door_2R.body.collideWorldBounds = true;		
-            		this.game.physics.arcade.enable([this.door_2R],[this.player]);
-            		this.door_2R.body.onCollide = new Phaser.Signal();
-			this.door_2R.body.immovable=true;
-			
- 			this.door_2C = this.add.sprite(1088, 1888, 'door_front_circle_lock2');
-			this.physics.enable(this.door_2C, Phaser.Physics.ARCADE);
-			this.door_2C.body.collideWorldBounds = true;		
-            		this.game.physics.arcade.enable([this.door_2C],[this.player]);
-            		this.door_2C.body.onCollide = new Phaser.Signal();
-			//this.door_2C.body.immovable=true;
-						
-			this.door_1L = this.add.sprite(736, 2849, 'door_side_square_lock');
-			this.physics.enable(this.door_1L, Phaser.Physics.ARCADE);
-			this.door_1L.body.collideWorldBounds = true;		
-            		this.game.physics.arcade.enable([this.door_1L],[this.player]);
-            		this.door_1L.body.onCollide = new Phaser.Signal();
-			this.door_1L.body.immovable=true;
-		
-			this.door_1R = this.add.sprite(1492, 2849, 'door_side_tri_lock');
-			this.physics.enable(this.door_1R, Phaser.Physics.ARCADE);
-			this.door_1R.body.collideWorldBounds = true;		
-            this.game.physics.arcade.enable([this.door_1R],[this.player]);
-            this.door_1R.body.onCollide = new Phaser.Signal();
-			this.door_1R.body.immovable=true;
-			
-			this.door_1C = this.add.sprite(1088, 2528, 'door_front_circle_lock');
-			this.physics.enable(this.door_1C, Phaser.Physics.ARCADE);
-			this.door_1C.body.collideWorldBounds = true;		
-            		this.game.physics.arcade.enable([this.door_1C],[this.player]);
-            		this.door_1C.body.onCollide = new Phaser.Signal();
-			//this.door_1C.body.immovable=true;
-			*/
-
-			//end of old code
-
-
 			//character
 
 			this.player = this.add.sprite(xy[0], xy[1], 'locke');
@@ -294,40 +152,6 @@ GameStates.makeGame = function (game, shared, shared_index, keys, hints, items, 
 					this.physics.arcade.collide(doors[i], this.player, this.unlockDoor, null, this);
 				}
 			}
-
-
-			/*
-			this.physics.arcade.collide(this.door_5L, this.layer);
-			this.physics.arcade.collide(this.door_5L, this.player);
-			this.physics.arcade.collide(this.door_5R, this.layer);
-			this.physics.arcade.collide(this.door_5R, this.player);
-			this.physics.arcade.collide(this.door_5C, this.layer);
-			this.physics.arcade.collide(this.door_5C, this.player);
-			this.physics.arcade.collide(this.door_4L, this.layer);
-			this.physics.arcade.collide(this.door_4L, this.player);
-			this.physics.arcade.collide(this.door_4R, this.layer);
-			this.physics.arcade.collide(this.door_4R, this.player);
-			this.physics.arcade.collide(this.door_4C, this.layer);
-			this.physics.arcade.collide(this.door_4C, this.player);
-			this.physics.arcade.collide(this.door_3L, this.layer);
-			this.physics.arcade.collide(this.door_3L, this.player);
-			this.physics.arcade.collide(this.door_3R, this.layer);
-			this.physics.arcade.collide(this.door_3R, this.player);
-			this.physics.arcade.collide(this.door_3C, this.layer);
-			this.physics.arcade.collide(this.door_3C, this.player);
-			this.physics.arcade.collide(this.door_2L, this.layer);
-			this.physics.arcade.collide(this.door_2L, this.player);
-			this.physics.arcade.collide(this.door_2R, this.layer);
-			this.physics.arcade.collide(this.door_2R, this.player);
-			this.physics.arcade.collide(this.door_2C, this.layer);
-			this.physics.arcade.collide(this.door_2C, this.player);
-			this.physics.arcade.collide(this.door_1L, this.layer);
-			this.physics.arcade.collide(this.door_1L, this.player);			
-			this.physics.arcade.collide(this.door_1R, this.layer);
-			this.physics.arcade.collide(this.door_1R, this.player);
-			this.physics.arcade.collide(this.door_1C, this.layer);
-			this.physics.arcade.collide(this.door_1C, this.player);
-			*/
 
 			//character movement
 			if (this.cursors.left.isDown){
@@ -391,7 +215,14 @@ GameStates.makeGame = function (game, shared, shared_index, keys, hints, items, 
                 
 				}
 			}
-
+			//quits game if last door is unlocked
+			if (unlocked_doors.includes('door_front_star_lock')) {	
+				unlocked_doors = [];
+				used_keys = [];
+				doors = [];
+				xy = [1110, 320];
+				this.quitGame();
+            }
 			//saves coordinates that the player was at last
 			//NOTE: the array xy is in main.js, which has the original
 			//spawn points
@@ -426,7 +257,7 @@ GameStates.makeGame = function (game, shared, shared_index, keys, hints, items, 
             }
 		},
 		//kills item and adds it to the correct list
-		//needs the stprite, the list it goes in, and the correct name of the spite
+		//needs the stprite, the list it goes in, and the correct name of the sprite
 		collectItem: function(sprite, array, string){
 			sprite.kill();
 			array[array.length] = string;
@@ -438,7 +269,7 @@ GameStates.makeGame = function (game, shared, shared_index, keys, hints, items, 
 		},
 		lockTwo: function(){
 			window.shared_index = 2;
-			this.state.start('endGame');
+			this.state.start('numberPuzzle');
 		},
 		inventory: function () {
 			this.state.start('menu');
@@ -446,7 +277,6 @@ GameStates.makeGame = function (game, shared, shared_index, keys, hints, items, 
 		//this will eventually end the game, but right now it starts the 
 		//puzzle
 		quitGame: function () {
-			//this.player.kill();
 			this.state.start('endGame');
 		},
 	};	
