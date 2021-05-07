@@ -11,7 +11,7 @@ GameStates.makeGame = function (game, shared, shared_index, keys, hints, items, 
 		'door_side_square_lock4', 'door_side_tri_lock4', 'door_front_circle_lock4',
 		'door_side_square_lock3', 'door_side_tri_lock3', 'door_front_circle_lock3',
 		'door_side_square_lock2', 'door_side_tri_lock2', 'door_front_circle_lock2',
-		'door_side_square_lock', 'door_side_tri_lock2', 'door_front_circle_lock2']; 
+		'door_side_square_lock', 'door_side_tri_lock', 'door_front_circle_lock']; 
 	//all of the x coordinates of each door in order
 	var x_door = [736, 1492, 1088,
 		736, 1492, 1088,
@@ -68,23 +68,110 @@ GameStates.makeGame = function (game, shared, shared_index, keys, hints, items, 
 			this.red.inputEnabled = true;
 			this.red.events.onInputDown.add(function () { this.lockTwo(); }, this);
 
-			if (keys.includes('key_C1') == false) {
-				this.key_1A = this.add.sprite(400, 100, 'key_C1');
-				this.key_1A.inputEnabled = true;
-				this.key_1A.events.onInputDown.add(function () { this.collectItem(this.key_1A, keys, 'key_C1'); }, this);
-			}
+			//if (keys.includes('key_C1') == false) {
+			//	this.key_1A = this.add.sprite(400, 100, 'key_C1');
+			//	this.key_1A.inputEnabled = true;
+			//	this.key_1A.events.onInputDown.add(function () { this.collectItem(this.key_1A, keys, 'key_C1'); }, this);
+			//}
 
+
+			//note: you must also check used keys or else it will re-spawn after removing them from inventory  
+			if (keys.includes('key_X') == false && used_keys.includes('key_X') == false) {
+				this.bossKey = this.add.sprite(1896, 2876, 'key_X');//1088,200
+				this.bossKey.inputEnabled = true;
+				this.bossKey.events.onInputDown.add(function () { this.collectItem(this.bossKey, keys, 'key_X'); }, this);
+           	        }
+			
 			if (keys.includes('key_S5') == false) {
-				this.key_5L = this.add.sprite(988, 289, 'key_S5');
+				this.key_5L = this.add.sprite(888, 508, 'key_S5');
 				this.key_5L.inputEnabled = true;
 				this.key_5L.events.onInputDown.add(function () { this.collectItem(this.key_5L, keys, 'key_S5'); }, this);
 			}
-			//note: you must also check used keys or else it will re-spawn after removing them from inventory  
-			if (keys.includes('key_X') == false && used_keys.includes('key_X') == false) {
-				this.bossKey = this.add.sprite(1088, 200, 'key_X');
-				this.bossKey.inputEnabled = true;
-				this.bossKey.events.onInputDown.add(function () { this.collectItem(this.bossKey, keys, 'key_X'); }, this);
-            }
+			
+			if (keys.includes('key_T5') == false) {
+				this.key_5R = this.add.sprite(360, 316, 'key_T5');
+				this.key_5R.inputEnabled = true;
+				this.key_5R.events.onInputDown.add(function () { this.collectItem(this.key_5R, keys, 'key_T5'); }, this);
+			}
+			
+			if (keys.includes('key_C4') == false) {
+				this.key_4C = this.add.sprite(1896, 316, 'key_C4');
+				this.key_4C.inputEnabled = true;
+				this.key_4C.events.onInputDown.add(function () { this.collectItem(this.key_4C, keys, 'key_C4'); }, this);
+			}
+			
+			if (keys.includes('key_S4') == false) {
+				this.key_4L = this.add.sprite(888, 1148, 'key_S4');
+				this.key_4L.inputEnabled = true;
+				this.key_4L.events.onInputDown.add(function () { this.collectItem(this.key_4L, keys, 'key_S4'); }, this);
+			}
+			
+			if (keys.includes('key_T4') == false) {
+				this.key_4R = this.add.sprite(360, 956, 'key_T4');
+				this.key_4R.inputEnabled = true;
+				this.key_4R.events.onInputDown.add(function () { this.collectItem(this.key_4R, keys, 'key_T4'); }, this);
+			}
+			
+			if (keys.includes('key_C3') == false) {
+				this.key_3C = this.add.sprite(1896, 956, 'key_C3');
+				this.key_3C.inputEnabled = true;
+				this.key_3C.events.onInputDown.add(function () { this.collectItem(this.key_3C, keys, 'key_C3'); }, this);
+			}
+			
+			if (keys.includes('key_S3') == false) {
+				this.key_3L = this.add.sprite(888, 1788, 'key_S3');
+				this.key_3L.inputEnabled = true;
+				this.key_3L.events.onInputDown.add(function () { this.collectItem(this.key_3L, keys, 'key_S3'); }, this);
+			}
+			
+			if (keys.includes('key_T3') == false) {
+				this.key_3R = this.add.sprite(360, 1596, 'key_T3');
+				this.key_3R.inputEnabled = true;
+				this.key_3R.events.onInputDown.add(function () { this.collectItem(this.key_3R, keys, 'key_T3'); }, this);
+			}
+			
+			if (keys.includes('key_C2') == false) {
+				this.key_2C = this.add.sprite(1896, 1596, 'key_C2');
+				this.key_2C.inputEnabled = true;
+				this.key_2C.events.onInputDown.add(function () { this.collectItem(this.key_2C, keys, 'key_C2'); }, this);
+			}
+			
+			if (keys.includes('key_S2') == false) {
+				this.key_2L = this.add.sprite(888, 2428, 'key_S2');
+				this.key_2L.inputEnabled = true;
+				this.key_2L.events.onInputDown.add(function () { this.collectItem(this.key_2L, keys, 'key_S2'); }, this);
+			}
+			
+			if (keys.includes('key_T2') == false) {
+				this.key_2R = this.add.sprite(360, 2236, 'key_T2');
+				this.key_2R.inputEnabled = true;
+				this.key_2R.events.onInputDown.add(function () { this.collectItem(this.key_2R, keys, 'key_T2'); }, this);
+			}
+			
+			if (keys.includes('key_C1') == false) {
+				this.key_1C = this.add.sprite(1896, 2236, 'key_C1');
+				this.key_1C.inputEnabled = true;
+				this.key_1C.events.onInputDown.add(function () { this.collectItem(this.key_1C, keys, 'key_C1'); }, this);
+			}
+			
+			if (keys.includes('key_S1') == false) {
+				this.key_1L = this.add.sprite(888, 3068, 'key_S1');
+				this.key_1L.inputEnabled = true;
+				this.key_1L.events.onInputDown.add(function () { this.collectItem(this.key_1L, keys, 'key_S1'); }, this);
+			}
+			
+			if (keys.includes('key_T1') == false) {
+				this.key_1R = this.add.sprite(360, 2876, 'key_T1');
+				this.key_1R.inputEnabled = true;
+				this.key_1R.events.onInputDown.add(function () { this.collectItem(this.key_1R, keys, 'key_T1'); }, this);
+			}
+			
+			//if (keys.includes('key_C4') == false) {
+			//	this.key_4C = this.add.sprite(1896, 2876, 'key_C4');
+			//	this.key_4C.inputEnabled = true;
+			//	this.key_4C.events.onInputDown.add(function () { this.collectItem(this.key_4C, keys, 'key_C4'); }, this);
+			//}
+			
 			this.match_1A = this.add.sprite(290, 100, 'match');
 			this.match_1A.inputEnabled = true;
 
@@ -123,12 +210,12 @@ GameStates.makeGame = function (game, shared, shared_index, keys, hints, items, 
 			game.camera.follow(this.player);
 
 			//collision items
-			this.box_1A = this.add.sprite(100, 100, 'box60');
+			this.box_1A = this.add.sprite(360, 316, 'box60');
 			this.box_1A.inputEnabled = true;
 			this.physics.enable(this.box_1A, Phaser.Physics.ARCADE);
 			this.box_1A.body.collideWorldBounds = true;
-            this.game.physics.arcade.enable([this.box_1A],[this.player]);
-            this.box_1A.body.onCollide = new Phaser.Signal();
+            		this.game.physics.arcade.enable([this.box_1A],[this.player]);
+            		this.box_1A.body.onCollide = new Phaser.Signal();
 
 
 			//foreground of tilemap
