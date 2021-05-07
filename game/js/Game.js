@@ -352,12 +352,12 @@ GameStates.makeGame = function (game, shared, shared_index, keys, hints, items, 
 			game.camera.follow(this.player);
 
 			//collision items
-			this.box_1A = this.add.sprite(100, 100, 'box60');
+			this.box_1A = this.add.sprite(360, 316, 'box60');
 			this.box_1A.inputEnabled = true;
 			this.physics.enable(this.box_1A, Phaser.Physics.ARCADE);
 			this.box_1A.body.collideWorldBounds = true;
-            this.game.physics.arcade.enable([this.box_1A],[this.player]);
-            this.box_1A.body.onCollide = new Phaser.Signal();
+            		this.game.physics.arcade.enable([this.box_1A],[this.player]);
+            		this.box_1A.body.onCollide = new Phaser.Signal();
 
 
 			//foreground of tilemap
