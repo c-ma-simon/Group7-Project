@@ -170,13 +170,13 @@ GameStates.makeGame = function (game, shared, shared_index, keys, hints, items, 
 			}
 			
 			if (keys.includes('key_T1') == false) {
-				this.key_1R = this.add.sprite(360, 2786, 'key_T1');
+				this.key_1R = this.add.sprite(360, 2876, 'key_T1');
 				this.key_1R.inputEnabled = true;
 				this.key_1R.events.onInputDown.add(function () { this.collectItem(this.key_1R, keys, 'key_T1'); }, this);
 			}
 			
 			//if (keys.includes('key_C4') == false) {
-			//	this.key_4C = this.add.sprite(1896, 2786, 'key_C4');
+			//	this.key_4C = this.add.sprite(1896, 2876, 'key_C4');
 			//	this.key_4C.inputEnabled = true;
 			//	this.key_4C.events.onInputDown.add(function () { this.collectItem(this.key_4C, keys, 'key_C4'); }, this);
 			//}
