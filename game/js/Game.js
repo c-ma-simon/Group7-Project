@@ -90,7 +90,7 @@ GameStates.makeGame = function (game, shared, shared_index, keys, hints, items, 
 			}
 			
 			if (keys.includes('key_T5') == false) {
-				this.key_5R = this.add.sprite(368, 380, 'key_T5');
+				this.key_5R = this.add.sprite(360, 316, 'key_T5');
 				this.key_5R.inputEnabled = true;
 				this.key_5R.events.onInputDown.add(function () { this.collectItem(this.key_5R, keys, 'key_T5'); }, this);
 			}
