@@ -83,6 +83,14 @@ GameStates.makeGame = function (game, shared, shared_index, keys, hints, items, 
 				this.key_1A.events.onInputDown.add(function () { this.collectItem(this.key_1A, keys, 'key_C1'); }, this);
 			}
 
+
+			//note: you must also check used keys or else it will re-spawn after removing them from inventory  
+			if (keys.includes('key_X') == false && used_keys.includes('key_X') == false) {
+				this.bossKey = this.add.sprite(1088, 200, 'key_X');
+				this.bossKey.inputEnabled = true;
+				this.bossKey.events.onInputDown.add(function () { this.collectItem(this.bossKey, keys, 'key_X'); }, this);
+           	        }
+			
 			if (keys.includes('key_S5') == false) {
 				this.key_5L = this.add.sprite(888, 508, 'key_S5');
 				this.key_5L.inputEnabled = true;
@@ -100,12 +108,79 @@ GameStates.makeGame = function (game, shared, shared_index, keys, hints, items, 
 				this.key_4C.inputEnabled = true;
 				this.key_4C.events.onInputDown.add(function () { this.collectItem(this.key_4C, keys, 'key_C4'); }, this);
 			}
-			//note: you must also check used keys or else it will re-spawn after removing them from inventory  
-			if (keys.includes('key_X') == false && used_keys.includes('key_X') == false) {
-				this.bossKey = this.add.sprite(1088, 200, 'key_X');
-				this.bossKey.inputEnabled = true;
-				this.bossKey.events.onInputDown.add(function () { this.collectItem(this.bossKey, keys, 'key_X'); }, this);
-            }
+			
+			if (keys.includes('key_S4') == false) {
+				this.key_4L = this.add.sprite(888, 1148, 'key_S4');
+				this.key_4L.inputEnabled = true;
+				this.key_4L.events.onInputDown.add(function () { this.collectItem(this.key_4L, keys, 'key_S4'); }, this);
+			}
+			
+			if (keys.includes('key_T4') == false) {
+				this.key_4R = this.add.sprite(360, 956, 'key_T4');
+				this.key_4R.inputEnabled = true;
+				this.key_4R.events.onInputDown.add(function () { this.collectItem(this.key_4R, keys, 'key_T4'); }, this);
+			}
+			
+			if (keys.includes('key_C3') == false) {
+				this.key_3C = this.add.sprite(1896, 956, 'key_C3');
+				this.key_3C.inputEnabled = true;
+				this.key_3C.events.onInputDown.add(function () { this.collectItem(this.key_3C, keys, 'key_C3'); }, this);
+			}
+			
+			if (keys.includes('key_S3') == false) {
+				this.key_3L = this.add.sprite(888, 1788, 'key_S3');
+				this.key_3L.inputEnabled = true;
+				this.key_3L.events.onInputDown.add(function () { this.collectItem(this.key_3L, keys, 'key_S3'); }, this);
+			}
+			
+			if (keys.includes('key_T3') == false) {
+				this.key_3R = this.add.sprite(360, 1596, 'key_T3');
+				this.key_3R.inputEnabled = true;
+				this.key_3R.events.onInputDown.add(function () { this.collectItem(this.key_3R, keys, 'key_T3'); }, this);
+			}
+			
+			if (keys.includes('key_C2') == false) {
+				this.key_2C = this.add.sprite(1896, 1596, 'key_C2');
+				this.key_2C.inputEnabled = true;
+				this.key_2C.events.onInputDown.add(function () { this.collectItem(this.key_2C, keys, 'key_C2'); }, this);
+			}
+			
+			if (keys.includes('key_S2') == false) {
+				this.key_2L = this.add.sprite(888, 2428, 'key_S2');
+				this.key_2L.inputEnabled = true;
+				this.key_2L.events.onInputDown.add(function () { this.collectItem(this.key_2L, keys, 'key_S2'); }, this);
+			}
+			
+			if (keys.includes('key_T2') == false) {
+				this.key_2R = this.add.sprite(360, 2236, 'key_T2');
+				this.key_2R.inputEnabled = true;
+				this.key_2R.events.onInputDown.add(function () { this.collectItem(this.key_2R, keys, 'key_T2'); }, this);
+			}
+			
+			if (keys.includes('key_C1') == false) {
+				this.key_1C = this.add.sprite(1896, 2236, 'key_C1');
+				this.key_1C.inputEnabled = true;
+				this.key_1C.events.onInputDown.add(function () { this.collectItem(this.key_1C, keys, 'key_C1'); }, this);
+			}
+			
+			if (keys.includes('key_S1') == false) {
+				this.key_1L = this.add.sprite(888, 3068, 'key_S1');
+				this.key_1L.inputEnabled = true;
+				this.key_1L.events.onInputDown.add(function () { this.collectItem(this.key_1L, keys, 'key_S1'); }, this);
+			}
+			
+			if (keys.includes('key_T1') == false) {
+				this.key_1R = this.add.sprite(360, 2786, 'key_T1');
+				this.key_1R.inputEnabled = true;
+				this.key_1R.events.onInputDown.add(function () { this.collectItem(this.key_1R, keys, 'key_T1'); }, this);
+			}
+			
+			//if (keys.includes('key_C4') == false) {
+			//	this.key_4C = this.add.sprite(1896, 2786, 'key_C4');
+			//	this.key_4C.inputEnabled = true;
+			//	this.key_4C.events.onInputDown.add(function () { this.collectItem(this.key_4C, keys, 'key_C4'); }, this);
+			//}
+			
 			this.match_1A = this.add.sprite(290, 100, 'match');
 			this.match_1A.inputEnabled = true;
 
