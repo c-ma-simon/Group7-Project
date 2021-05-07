@@ -77,11 +77,11 @@ GameStates.makeGame = function (game, shared, shared_index, keys, hints, items, 
 			this.red.inputEnabled = true;
 			this.red.events.onInputDown.add(function () { this.lockTwo(); }, this);
 
-			if (keys.includes('key_C1') == false) {
-				this.key_1A = this.add.sprite(400, 100, 'key_C1');
-				this.key_1A.inputEnabled = true;
-				this.key_1A.events.onInputDown.add(function () { this.collectItem(this.key_1A, keys, 'key_C1'); }, this);
-			}
+			//if (keys.includes('key_C1') == false) {
+			//	this.key_1A = this.add.sprite(400, 100, 'key_C1');
+			//	this.key_1A.inputEnabled = true;
+			//	this.key_1A.events.onInputDown.add(function () { this.collectItem(this.key_1A, keys, 'key_C1'); }, this);
+			//}
 
 
 			//note: you must also check used keys or else it will re-spawn after removing them from inventory  
