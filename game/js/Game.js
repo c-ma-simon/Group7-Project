@@ -84,7 +84,7 @@ GameStates.makeGame = function (game, shared, shared_index, keys, hints, items, 
 			}
 
 			if (keys.includes('key_S5') == false) {
-				this.key_5L = this.add.sprite(888, 289, 'key_S5');
+				this.key_5L = this.add.sprite(888, 508, 'key_S5');
 				this.key_5L.inputEnabled = true;
 				this.key_5L.events.onInputDown.add(function () { this.collectItem(this.key_5L, keys, 'key_S5'); }, this);
 			}
