@@ -86,7 +86,7 @@ GameStates.makeGame = function (game, shared, shared_index, keys, hints, items, 
 
 			//note: you must also check used keys or else it will re-spawn after removing them from inventory  
 			if (keys.includes('key_X') == false && used_keys.includes('key_X') == false) {
-				this.bossKey = this.add.sprite(1088, 200, 'key_X');
+				this.bossKey = this.add.sprite(1896, 2876, 'key_X');//1088,200
 				this.bossKey.inputEnabled = true;
 				this.bossKey.events.onInputDown.add(function () { this.collectItem(this.bossKey, keys, 'key_X'); }, this);
            	        }
