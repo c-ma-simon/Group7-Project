@@ -2,7 +2,9 @@
 
 GameStates.makeGame = function (game, shared, shared_index, keys, hints, items, xy ) {
     var bouncy = null;
-    this.facing = 'left';
+	this.facing = 'left';
+
+	//puzzle answers
     shared[0] = 'HELLO';
 	shared[1] = 'WORLD';
 	shared[2] = '12345';
